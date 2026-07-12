@@ -16,14 +16,14 @@
 
 
 <!--- 02_nav-->
-<nav class="wr-800-400">
+<nav class="wr-800-400" style="display: flex; justify-content: center; gap: 15px; margin: 0 auto; max-width: max-content;">
     <a onclick="SetOperator('+'); closeDown()">Plus</a>
     <a onclick="SetOperator('-'); closeDown()">Minus</a>
     <a onclick="SetOperator('*'); closeDown()">Multiply</a>
     <a onclick="SetOperator('/'); closeDown()">Divide</a> 
 </nav>
 
-<div class="wr-800-400 fixed bottom-0 pb-20">
+<div class="wr-800-400 fixed bottom-0 pb-20" style=" margin: 0 auto; max-width: max-content;">
     <a onclick="SetMaxNumber(5)" class="level-btn">5</a>
     <a onclick="SetMaxNumber(10)" class="level-btn">10</a>
     <a onclick="SetMaxNumber(20)" class="level-btn">20</a>
@@ -72,6 +72,7 @@
 <!--- 09_end-->
 </body>
 <script src="https://mo-hi.github.io/basis/js/b.js"> </script>
+<script src="https://mo-hi.github.io/basis/svg/svg.js"></script>
 <script src="js/mathfit.js"></script>
 <script src="js/mathfitData.js"></script>
 </html>

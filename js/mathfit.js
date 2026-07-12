@@ -195,7 +195,8 @@ function _score_Red() {
     currentScoreRed += 1
     let div = document.createElement('div')
     div.classList.add('inline-block', 'red')
-    div.innerHTML = b_svg('svg-icon-discard', 48)
+    // div.innerHTML = b_svg('svg-icon-discard', 48)
+    div.innerHTML = clsSVG.getCode("icon-discard", 48, 48, "red")
     document.getElementById('scoreRed').appendChild(div)
 
     if (currentScoreRed == 3) _score_GameOver()
@@ -206,7 +207,8 @@ function _score_Grid(n) {
     for (let i = 0; i < n; i++) {
         let div = document.createElement('div')
         div.classList.add('inline-block', 'green')
-        div.innerHTML = b_svg('svg-icon-grid', 48)
+        // div.innerHTML = b_svg('svg-icon-grid', 48)
+        div.innerHTML = clsSVG.getCode("icon-grid", 48, 48, "color: transparent; fill:green")
         document.getElementById('scoreGreen').appendChild(div)
         }
 }
@@ -214,7 +216,8 @@ function _score_Grid(n) {
 function _score_Check() {
     let div = document.createElement('div')
     div.classList.add('inline-block', 'green')
-    div.innerHTML = b_svg('svg-icon-check', 48)
+    // div.innerHTML = b_svg('svg-icon-check', 48)
+    div.innerHTML = clsSVG.getCode("icon-check", 48, 48, "green")
     document.getElementById('scoreGreen').appendChild(div)
 }
 
