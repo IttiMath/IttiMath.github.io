@@ -77,6 +77,11 @@ try {
     template = template.replace('<!-- STYLES NODE-JS -->', minCss);
     template = template.replace('// SCRIPTS NODE-JS //', scriptString);
 
+    // replace logo placeholder with svg logo
+    const logoPath = './svgs/svgLogo.html'
+    const logoContent = fs.readFileSync(logoPath, 'utf8');
+    template = template.replace('<!-- LOGO NODE JS-->', logoContent);
+
 
     // 4. Fertige index.html schreiben
     const minifiedTemplate = await minify(template, {
