@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f5f7;
+  overflow: hidden; /* Verhindert Scrollen der Gesamtsenseite */
+}
+
+/* Hauptbereich: Nimmt die volle Breite ein und erlaubt vertikales Scrollen */
+.app-container {
+  flex: 1;
+  width: 100%;
+  max-width: 600px; /* Optional: Maximale Breite für Desktop-Ansicht */
+  margin: 0 auto;
+  position: relative;
+  overflow-y: auto; /* Vertikales Scrollen bei langem Inhalt */
+  background: #ffffff;
+}
+
+/* Bildschirme */
+.screen {
+  display: none;
+  padding: 20px;
+  min-height: 100%;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* Unten fixierte Navigation */
+.bottom-nav {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  padding: 8px 0;
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 12px;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.bottom-nav-item.active {
+  color: #007aff;
+}
+
+.bottom-nav-icon {
+  width: 24px;
+  height: 24px;
+}

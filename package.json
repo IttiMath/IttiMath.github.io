@@ -1,0 +1,12 @@
+{
+  "name": "lokale-web-app",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node js/build.js"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0",
+    "purgecss": "^8.0.0"
+  }
+}

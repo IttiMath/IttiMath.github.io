@@ -1,0 +1,43 @@
+<section id="id-section-game" class="screen">
+    <div class="app-content">
+        <div class="problem-title">1 - 10  | Plus</div>
+        
+        <ol class="progress-bar" aria-label="Antwortverlauf für 8 Aufgaben">
+            <li class="progress-segment is-pending"></li>
+            <li class="progress-segment is-pending"></li>
+            <li class="progress-segment is-pending"></li>
+            <li class="progress-segment is-pending"></li>
+            <li class="progress-segment is-pending"></li>
+            <li class="progress-segment is-pending"></li>
+            <li class="progress-segment is-pending"></li>
+            <li class="progress-segment is-pending"></li>
+        </ol>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="problem-container">
+            <div id="problem">3 + 4</div>
+            <div id="equal"> = </div>
+            <div id="result">
+                <span></span>
+            </div>
+        </div>
+        <div class="spacer"></div>
+        <div id="number-pad">
+            <div id="num1" class="number-block" onclick="appendToResult(1)">1</div>
+            <div id="num2" class="number-block" onclick="appendToResult(2)">2</div>
+            <div id="num3" class="number-block" onclick="appendToResult(3)">3</div>
+            <div id="num4" class="number-block" onclick="appendToResult(4)">4</div>
+            <div id="num5" class="number-block" onclick="appendToResult(5)">5</div>
+            <div id="num6" class="number-block" onclick="appendToResult(6)">6</div>
+            <div id="num7" class="number-block" onclick="appendToResult(7)">7</div>
+            <div id="num8" class="number-block" onclick="appendToResult(8)">8</div>
+            <div id="num9" class="number-block" onclick="appendToResult(9)">9</div>
+            <div id="num0" class="number-block zero-btn" onclick="appendToResult(0)">0</div>
+        </div>
+
+        <div class="action-buttons-container">
+            <button class="action-button red" onclick="clearResult()">X</button>
+            <button class="action-button green" onclick="checkResult()">&#10004;</button>
+        </div>
+    </div>
+</section>

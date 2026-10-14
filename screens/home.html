@@ -1,0 +1,57 @@
+<section id="id-section-home" class="screen active">
+    <div class="app-content">
+        <div class="w-100">
+            <h3>Rechenart</h3>
+            <div class="home-selection flex-space-between w-100 mt-10">
+                <label class="color-radio w-20">
+                    <input type="radio" name="name-operation" value="plus" class="hidden" checked>
+                    <div class="btn gray w-100">+</div>
+                </label>
+
+                <label class="color-radio w-20">
+                    <input type="radio" name="name-operation" value="minus" class="hidden">
+                    <div class="btn gray w-100">-</div>
+                </label>
+
+                <label class="color-radio w-20">
+                    <input type="radio" name="name-operation" value="multiply" class="hidden">
+                    <div class="btn gray w-100">x</div>
+                </label>
+
+                <label class="color-radio w-20">
+                    <input type="radio" name="name-operation" value="divide" class="hidden">
+                    <div class="btn gray w-100">:</div>
+                </label>
+            </div>
+        </div>
+
+        <div class="w-100">
+            <h3>Zahlenbereich</h3>
+            <div class="home-selection flex-space-between w-100 mt-10">
+                <label class="color-radio w-20">
+                    <input type="radio" name="name-number-range" value="1-10" class="hidden" checked>
+                    <div class="btn gray w-100">1-10</div>
+                </label>
+
+                <label class="color-radio w-20">
+                    <input type="radio" name="name-number-range" value="1-20" class="hidden">
+                    <div class="btn gray w-100">1-20</div>
+                </label>
+
+                <label class="color-radio w-20">
+                    <input type="radio" name="name-number-range" value="1-50" class="hidden">
+                    <div class="btn gray w-100">1-50</div>
+                </label>
+
+                <label class="color-radio w-20">
+                    <input type="radio" name="name-number-range" value="1-100" class="hidden">
+                    <div class="btn gray w-100">1-100</div>
+                </label>
+            </div>
+        </div>
+        <div class="spacer"></div>
+        <button class="action-button green" onclick="selectGameScreen(this); startGame();">START</button>
+
+        <button class="action-button hidden" onclick="selectGameScreen(this); startGame();">Continue Game</button>
+    </div>
+</section>
