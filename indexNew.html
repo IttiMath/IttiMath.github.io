@@ -685,6 +685,7 @@ a, a:visited {
 */
 .w-20 {width: 20% !important;}
 .w-100 {width: 100% !important;}
+.h-180 {height: 180px !important;}
 
 nav>a {
     color: var(--color-nav-font);
@@ -822,16 +823,7 @@ nav>a {
   background-color: #66cc66; /* Light green */
   color: white;
 }
-/* Hauptbereich */
-.app-container {
-  flex: 1;  
-  width: 100%;
-  max-width: 600px; /* Optional: Maximale Breite für Desktop-Ansicht */
-  margin: 0 auto;
-  position: relative;
-  overflow: visible;
-  background: var(--color-bg-app);
-}
+
 
 .screen.active {
   display: flex;
@@ -896,28 +888,31 @@ nav>a {
 }
 
 body {
+  display: flex;
   min-height: 100vh;
   min-height: 100dvh;
-  display: flex;
+  
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 24px;
   background-color: var(--color-body-bg);
-  /* color: var(--color-body-text); */
   overflow-x: hidden;
 }
 
 main {
-  flex: none;
-  width: min(430px, calc((100dvh - 48px) * 9 / 19.5));
-  height: min(932px, calc(100dvh - 48px));
-  max-width: none;
-  margin: 0;
-  border-radius: 16px;
-  border: 1px solid black;
+  flex: 1;  
+  max-width: 393px; 
+  width: 100%;
+  max-height: 750px;
+  height:100%;
+
+  margin: 0 auto;
+  position: relative;
   overflow: visible;
-  background-color: var(--color-main-bg);
+  background: var(--color-bg-app);
+  border: 1px solid black;
+  border-radius: 16px;
 }
 
 @media (max-width: 600px), (max-height: 500px) {
@@ -929,6 +924,7 @@ main {
     width: 100%;
     height: 100dvh;
     border-radius: 0;
+    border: 0;
   }
 }
 
@@ -1046,7 +1042,7 @@ main {
   80% {transform: translateY(0);}
   90% {transform: translateY(-4px);}
   100% {transform: translateY(0);}
-}</style></head><body class="light gray"><main class="app-container"><div id="id-logo-container" style="--color-logo: var(--color-gray-600); width: 100%; height: 132px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 220" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><rect width="500" height="220" rx="20" fill="transparent"/><text x="250" y="120" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="88" font-weight="800" fill="var(--color-logo)" text-anchor="middle" letter-spacing="6">ITTI</text><text x="250" y="168" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="var(--color-logo)" text-anchor="middle" letter-spacing="2">INTERACTIVE INTEGER TRAINING</text></svg></div><section id="id-section-game" class="screen"><div class="app-content"><div class="problem-title">1 - 10 | Plus</div><ol class="progress-bar" aria-label="Antwortverlauf für 8 Aufgaben"><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li></ol><div class="spacer"></div><div class="spacer"></div><div class="problem-container"><div id="problem">3 + 4</div><div id="equal">=</div><div id="result"><span></span></div></div><div class="spacer"></div><div id="number-pad"><div id="num1" class="number-block" onclick="appendToResult(1)">1</div><div id="num2" class="number-block" onclick="appendToResult(2)">2</div><div id="num3" class="number-block" onclick="appendToResult(3)">3</div><div id="num4" class="number-block" onclick="appendToResult(4)">4</div><div id="num5" class="number-block" onclick="appendToResult(5)">5</div><div id="num6" class="number-block" onclick="appendToResult(6)">6</div><div id="num7" class="number-block" onclick="appendToResult(7)">7</div><div id="num8" class="number-block" onclick="appendToResult(8)">8</div><div id="num9" class="number-block" onclick="appendToResult(9)">9</div><div id="num0" class="number-block zero-btn" onclick="appendToResult(0)">0</div></div><div class="action-buttons-container"><button class="action-button red" onclick="clearResult()">X</button> <button class="action-button green" onclick="checkResult()">&#10004;</button></div></div></section><section id="id-section-home" class="screen active"><div class="app-content"><div class="w-100"><h3>Rechenart</h3><div class="home-selection flex-space-between w-100 mt-10"><label class="color-radio w-20"><input type="radio" name="name-operation" value="plus" class="hidden" checked="checked"><div class="btn gray w-100">+</div></label> <label class="color-radio w-20"><input type="radio" name="name-operation" value="minus" class="hidden"><div class="btn gray w-100">-</div></label> <label class="color-radio w-20"><input type="radio" name="name-operation" value="multiply" class="hidden"><div class="btn gray w-100">x</div></label> <label class="color-radio w-20"><input type="radio" name="name-operation" value="divide" class="hidden"><div class="btn gray w-100">:</div></label></div></div><div class="w-100"><h3>Zahlenbereich</h3><div class="home-selection flex-space-between w-100 mt-10"><label class="color-radio w-20"><input type="radio" name="name-number-range" value="1-10" class="hidden" checked="checked"><div class="btn gray w-100">1-10</div></label> <label class="color-radio w-20"><input type="radio" name="name-number-range" value="1-20" class="hidden"><div class="btn gray w-100">1-20</div></label> <label class="color-radio w-20"><input type="radio" name="name-number-range" value="1-50" class="hidden"><div class="btn gray w-100">1-50</div></label> <label class="color-radio w-20"><input type="radio" name="name-number-range" value="1-100" class="hidden"><div class="btn gray w-100">1-100</div></label></div></div><div class="spacer"></div><button class="action-button green" onclick="selectGameScreen(this); startGame();">START</button> <button class="action-button hidden" onclick="selectGameScreen(this); startGame();">Continue Game</button></div></section><section id="id-section-personal" class="screen"><h2>Personal / Session</h2><p>Informationen zur aktuellen Sitzung:</p><ul><li>Session-ID: #83921</li><li>Status: Aktiv</li></ul></section><section id="id-section-settings" class="screen"><div class="app-content"><div class="settings-section w-100"><span class="font-24 bold">Colors</span><div class="color-options flex-space-between mt-10"><div class="btn gray" onclick="changeColor('gray')">gray</div><div class="btn blue" onclick="changeColor('blue')">blue</div><div class="btn pink" onclick="changeColor('pink')">pink</div><div class="btn green" onclick="changeColor('green')">green</div></div></div></div></section><div id="id-mobile-navbar" class="mobile-navbar"><nav><a onclick="selectScreen(this)" aria-label="Settings" title="Settings">⚙</a> <a onclick="selectScreen(this)" class="active" aria-label="Home" title="Home">⌂</a> <a onclick="selectScreen(this)" aria-label="Personal" title="Personal">👤</a></nav></div></main></body><script>function selectScreen(element) {
+}</style></head><body class="light gray"><main class="app-container"><div id="id-logo-container" style="--color-logo: var(--color-gray-600); width: 100%; height: 132px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 220" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><rect width="500" height="220" rx="20" fill="transparent"/><text x="250" y="120" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="88" font-weight="800" fill="var(--color-logo)" text-anchor="middle" letter-spacing="6">ITTI</text><text x="250" y="168" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="var(--color-logo)" text-anchor="middle" letter-spacing="2">INTERACTIVE INTEGER TRAINING</text></svg></div><section id="id-section-game" class="screen"><div class="app-content"><div class="problem-title">1 - 10 | Plus</div><ol class="progress-bar" aria-label="Antwortverlauf für 8 Aufgaben"><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li></ol><div class="spacer"></div><div class="spacer"></div><div class="problem-container"><div id="problem">3 + 4</div><div id="equal">=</div><div id="result"><span></span></div></div><div class="spacer"></div><div id="number-pad"><div id="num1" class="number-block" onclick="appendToResult(1)">1</div><div id="num2" class="number-block" onclick="appendToResult(2)">2</div><div id="num3" class="number-block" onclick="appendToResult(3)">3</div><div id="num4" class="number-block" onclick="appendToResult(4)">4</div><div id="num5" class="number-block" onclick="appendToResult(5)">5</div><div id="num6" class="number-block" onclick="appendToResult(6)">6</div><div id="num7" class="number-block" onclick="appendToResult(7)">7</div><div id="num8" class="number-block" onclick="appendToResult(8)">8</div><div id="num9" class="number-block" onclick="appendToResult(9)">9</div><div id="num0" class="number-block zero-btn" onclick="appendToResult(0)">0</div></div><div class="action-buttons-container"><button class="action-button red" onclick="clearResult()">X</button> <button class="action-button green" onclick="checkResult()">&#10004;</button></div></div></section><section id="id-section-home" class="screen active"><div class="app-content"><div class="w-100"><h3>Rechenart</h3><div class="home-selection flex-space-between w-100 mt-10"><label class="color-radio w-20"><input type="radio" name="name-operation" value="plus" class="hidden" checked="checked"><div class="btn gray w-100">+</div></label> <label class="color-radio w-20"><input type="radio" name="name-operation" value="minus" class="hidden"><div class="btn gray w-100">-</div></label> <label class="color-radio w-20"><input type="radio" name="name-operation" value="multiply" class="hidden"><div class="btn gray w-100">x</div></label> <label class="color-radio w-20"><input type="radio" name="name-operation" value="divide" class="hidden"><div class="btn gray w-100">:</div></label></div></div><div class="w-100"><h3>Zahlenbereich</h3><div class="home-selection flex-space-between w-100 mt-10"><label class="color-radio w-20"><input type="radio" name="name-number-range" value="1-10" class="hidden" checked="checked"><div class="btn gray w-100">1-10</div></label> <label class="color-radio w-20"><input type="radio" name="name-number-range" value="1-20" class="hidden"><div class="btn gray w-100">1-20</div></label> <label class="color-radio w-20"><input type="radio" name="name-number-range" value="1-50" class="hidden"><div class="btn gray w-100">1-50</div></label> <label class="color-radio w-20"><input type="radio" name="name-number-range" value="1-100" class="hidden"><div class="btn gray w-100">1-100</div></label></div></div><div class="spacer h-180"></div><button class="action-button green" onclick="selectGameScreen(this); startGame();">START</button> <button class="action-button hidden" onclick="selectGameScreen(this); startGame();">Continue Game</button></div></section><section id="id-section-personal" class="screen"><h2>Personal / Session</h2><p>Informationen zur aktuellen Sitzung:</p><ul><li>Session-ID: #83921</li><li>Status: Aktiv</li></ul></section><section id="id-section-settings" class="screen"><div class="app-content"><div class="settings-section w-100"><span class="font-24 bold">Colors</span><div class="color-options flex-space-between mt-10"><div class="btn gray" onclick="changeColor('gray')">gray</div><div class="btn blue" onclick="changeColor('blue')">blue</div><div class="btn pink" onclick="changeColor('pink')">pink</div><div class="btn green" onclick="changeColor('green')">green</div></div></div></div></section><div id="id-mobile-navbar" class="mobile-navbar"><nav><a onclick="selectScreen(this)" aria-label="Settings" title="Settings">⚙</a> <a onclick="selectScreen(this)" class="active" aria-label="Home" title="Home">⌂</a> <a onclick="selectScreen(this)" aria-label="Personal" title="Personal">👤</a></nav></div></main></body><script>function selectScreen(element) {
     // switch to active screen
     const name = element.title.trim().toLowerCase();
     document.querySelectorAll('.screen').forEach(_screen => {
