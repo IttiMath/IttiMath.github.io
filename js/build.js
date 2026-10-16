@@ -8,11 +8,15 @@ const screensDir = './screens';
 const templatePath = './template.html';
 const outputPath = './indexNew.html';
 
+// svgs
+const logoPath = './svgs/svgLogo.html'
+const operatorsPath = './svgs/operators.html';
+
 
 try {
     // 1. Alle Dateien im Ordner screens/ auslesen
     let template = fs.readFileSync(templatePath, 'utf8');
-    
+
     let mergedScreens = '';
 
     const screenFiles = fs.readdirSync(screensDir);
@@ -77,10 +81,17 @@ try {
     template = template.replace('<!-- STYLES NODE-JS -->', minCss);
     template = template.replace('// SCRIPTS NODE-JS //', scriptString);
 
-    // replace logo placeholder with svg logo
-    const logoPath = './svgs/svgLogo.html'
+    // replace placeholder inside screens
+    // replace logo
     const logoContent = fs.readFileSync(logoPath, 'utf8');
     template = template.replace('<!-- LOGO NODE JS-->', logoContent);
+
+    // replace operators
+    const operatorsText = fs.readFileSync(operatorsPath, 'utf8');
+    template = template.replace('<!-- SVG-PLUS NODE-JS -->', getSvgById(operatorsText, 'svg-plus'));
+    template = template.replace('<!-- SVG-MINUS NODE-JS -->', getSvgById(operatorsText, 'svg-minus'));
+    template = template.replace('<!-- SVG-MULTIPLY NODE-JS -->', getSvgById(operatorsText, 'svg-multiply'));
+    template = template.replace('<!-- SVG-DIVIDE NODE-JS -->', getSvgById(operatorsText, 'svg-divide'));
 
 
     // 4. Fertige index.html schreiben
@@ -94,4 +105,13 @@ try {
     console.log('✅ Erfolg: index.html wurde erfolgreich generiert!');
 } catch (error) {
     console.error('❌ Fehler beim Bauen der index.html:', error);
+}
+
+
+function getSvgById(text, svgId) {
+    // Sucht dynamisch nach dem <svg ... id="GEWÜNSCHTE_ID"> ... </svg> Block
+    const regex = new RegExp(`(<svg[^>]*id=["']${svgId}["'][\\s\\S]*?<\/svg>)`, 'i');
+    const match = text.match(regex);
+
+    return match ? match[1] : null;
 }
