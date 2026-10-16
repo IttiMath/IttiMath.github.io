@@ -887,6 +887,24 @@ nav>a {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
+:root {
+  /* iPhone 12 / 12 Pro / 13 / 13 Pro / 14 */
+  --iphone-12-13-14-width: 390px;
+  --iphone-12-13-14-height: 844px;
+
+  /* iPhone 14 Pro / 15 / 15 Pro / 16 */
+  --iphone-14pro-15-16-width: 393px;
+  --iphone-14pro-15-16-height: 852px;
+
+  /* iPhone 15 Plus */
+  --iphone-15-plus-width: 430px;
+  --iphone-15-plus-height: 932px;
+
+  /* iPhone 16 Pro */
+  --iphone-16-pro-width: 402px;
+  --iphone-16-pro-height: 874px;
+}
+
 body {
   display: flex;
   min-height: 100vh;
@@ -902,9 +920,9 @@ body {
 
 main {
   flex: 1;  
-  max-width: 393px; 
+  max-width: var(--iphone-15-plus-width);
+  max-height: var(--iphone-15-plus-height);
   width: 100%;
-  max-height: 750px;
   height:100%;
 
   margin: 0 auto;
@@ -921,10 +939,9 @@ main {
   }
 
   main {
-    width: 100%;
     height: 100dvh;
     border-radius: 0;
-    border: 0;
+    /* border: 0; */
   }
 }
 
