@@ -44,6 +44,7 @@ try {
         './node css/colors.css',
         './node css/btn.css',
         './node css/rest.css',
+        './node css/operatorSVG.css',
     ]
     for (let path of cssPaths) {
         cssString += fs.readFileSync(path, 'utf8') + '\n';
@@ -64,6 +65,7 @@ try {
     let scriptString = '';
     const scriptPaths = [
         // 'C:/git/mo-hi.github.io/basis/js/customElements_SelectionPill.js',
+        './js/Aufgabentabelle.js',
         './js/selectScreen.js',
         './js/changeTheme.js',
         './js/gameSession.js',
