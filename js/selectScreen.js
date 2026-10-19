@@ -16,7 +16,7 @@ function selectScreen(element) {
 }
 
 
-function selectGameScreen(element) {
+function selectGameScreen() {
     // switch to active screen
     document.querySelectorAll('.screen').forEach(_screen => {
         _screen.classList.remove('active');

@@ -4,6 +4,8 @@ function appendToResult(content) {
         resultElement.style.color = "";
         resultElement.firstElementChild.textContent = "";
     }
+
+    if (resultElement.textContent.length > 4) return;
     resultElement.firstElementChild.textContent += content;
 }
 
@@ -19,7 +21,7 @@ async function checkResult() {
     let problem = window.currentProblem;
 
     // store the user's answer in the session history
-    window.AufgabenmHistory[window.AufgabenmHistory.length - 1].aufgaben.push({ ...problem, userAnswer: userAnswer });
+    window.AufgabenHistory[window.AufgabenHistory.length - 1].aufgaben.push({ ...problem, userAnswer: userAnswer });
     window.CurrentAufgabenIndex += 1;
 
     // update the progress bar
@@ -29,7 +31,8 @@ async function checkResult() {
         nextProgressSegment.classList.add('is-correct');
         SuccessJump(resultElement)
         await new Promise(resolve => setTimeout(resolve, 500)); // Wait for the success jump animation to complete
-        generateAufgabe();
+        window.currentProblem = generateAufgabe()
+        WriteAufgabe();
     } else {
         nextProgressSegment.classList.add('is-incorrect');
         ErrorShake(resultElement)
@@ -39,3 +42,4 @@ async function checkResult() {
         startGame();
     }
 }
+

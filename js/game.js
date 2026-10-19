@@ -1,35 +1,55 @@
 window.operator = "+";
-window.numberRange = "1-10";
-window.maxNumber = 10;
+window.numberRange = "1-100";
+window.maxNumber = 100;
 window.currentProblem = {};
+
+var IHaveSeenZero = false;
 
 
 function startGame() {
     startNewSession()
-
-    generateAufgabe();
-
-    selectScreen('game');
+    selectGameScreen()
+    
+    ShowNumbersBasedOnMaxNumber();
+    
+    window.currentProblem = generateAufgabe()
+    
+    WriteAufgabe();
+    
 }
 
 function generateAufgabe() {
-    if (window.operator === "plus")
-        window.currentProblem = generateAufgabePlus()
-    if (window.operator === "minus")
-        window.currentProblem = generateAufgabeMinus()
-    if (window.operator === "multiply")
-        window.currentProblem = generateAufgabeMultiply()
-    if (window.operator === "divide")
-        window.currentProblem = generateAufgabeDivide()
-
-    document.getElementById("problem").innerHTML = window.currentProblem.a + " " + _operator(window.operator) + " " + window.currentProblem.b;
-    document.getElementById("result").firstElementChild.textContent = "";
-    document.getElementById("result").style.color = "";
+    let ret = {}
+    let safetyCount = 0;
+    while (AufgabeSeenInSession(ret) || 
+            Object.keys(ret).length === 0 ||
+            window.operator === "multiply" && window.maxNumber < 11 ||
+            window.operator === "divide" && window.maxNumber < 11 ||
+            safetyCount < 100) {
+                
+        if (safetyCount >= 100) {
+            console.warn("Safety count exceeded 100 iterations while generating problem.");
+            break;
+        }
+        safetyCount++;
+        if (window.operator === "plus")
+            ret = generateAufgabePlus()
+        if (window.operator === "minus")
+            ret = generateAufgabeMinus()
+        if (window.operator === "multiply")
+            ret = generateAufgabeMultiply()
+        if (window.operator === "divide")
+            ret = generateAufgabeDivide()
+    }
+    return ret;
 }
 
 function generateAufgabePlus() {
-    let a = Math.floor(Math.random() * window.maxNumber);
-    let b = Math.floor(Math.random() * (window.maxNumber - a));
+    // random Aufgaabe from 1 to maxNumber
+    let a = Math.floor((1 - Math.random()) * (window.maxNumber-1)) + 1;
+    let newMaxNumber = window.maxNumber - a;
+    let b = Math.floor((1 - Math.random()) * newMaxNumber) + 1;
+
     let result = a + b;
     return { a: a, b: b, result: result };
 }
@@ -39,21 +59,33 @@ function generateAufgabeMinus() {
     if (window.maxNumber == 20) minNumber = 10;
     if (window.maxNumber == 50) minNumber = 20;
     if (window.maxNumber == 100) minNumber = 50;
-    let a = Math.floor(Math.random() * (window.maxNumber - minNumber)) + minNumber;
+    let a = Math.floor(Math.random() * (window.maxNumber - minNumber - 1)) + minNumber + 1;
     let b = Math.floor(Math.random() * a);
     let result = a - b;
     return { a: a, b: b, result: result };
 }
 function generateAufgabeMultiply() {
-    let problems = SubsetFrom_Aufgabentabelle()
-    let randomProblem = problems[Math.floor(Math.random() * problems.length)];
-    return randomProblem;
+    // 1-math = ]0; 1], die unteren Grenze minFator würde also nie erreicht
+    // "+1" vergrßert den Bereich, aus dem die Zufallszahlen gewählt werden, sodass die unteren Grenzen erreicht werden können.
+    
+    let minFactor = 2;
+    if (window.maxNumber < 11) minFactor = 1;
+   
+    let maxA = Math.floor(Math.sqrt(window.maxNumber));
+    let a = Math.floor((1 - Math.random()) * (maxA - minFactor+1)) + minFactor;
+    let maxB = Math.floor(window.maxNumber / a) // this is not an integer
+    let b = Math.floor((1 - Math.random()) * (maxB - minFactor+1)) + minFactor;
+    let result = a * b;
+    return { a: a, b: b, result: result };
 }
 
 function generateAufgabeDivide() {
-    let problems = SubsetFrom_Aufgabentabelle()
-    let randomProblem = problems[Math.floor(Math.random() * problems.length)];
-    return randomProblem;
+    let multiplyProblem = generateAufgabeMultiply();
+    // inverses Problem: a / b = result
+    let a = multiplyProblem.result;
+    let b = multiplyProblem.b;
+    let result = multiplyProblem.a;
+    return { a: a, b: b, result: result };
 }
 
 

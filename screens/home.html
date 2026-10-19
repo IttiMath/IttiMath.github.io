@@ -1,7 +1,8 @@
 <section id="id-section-home" class="screen active">
     <div class="app-content">
         <div class="w-100">
-            <h3>Rechenart</h3>
+            <div class="spacer h-20"></div>
+            <!-- <h3>Rechenart</h3> -->
             <div class="home-selection flex-space-between w-100 mt-10">
                 <label class="operator-label w-20">
                     <input type="radio" name="name-operation" value="plus" class="hidden" checked>
@@ -32,34 +33,56 @@
                 </label>
             </div>
         </div>
-
+        <div class="spacer h-40"></div>
         <div class="w-100">
-            <h3>Zahlenbereich</h3>
+            <!-- <h3>Zahlenbereich</h3> -->
             <div class="home-selection flex-space-between w-100 mt-10">
-                <label class="color-radio w-20">
-                    <input type="radio" name="name-number-range" value="1-10" class="hidden" checked>
-                    <div class="btn gray w-100">1-10</div>
+                <label class="number-label gray  w-20">
+                    <input type="radio" name="name-number-range" value="5" class="hidden" checked>
+                    <div class="w-100">5</div>
                 </label>
 
-                <label class="color-radio w-20">
-                    <input type="radio" name="name-number-range" value="1-20" class="hidden">
-                    <div class="btn gray w-100">1-20</div>
+                <label class="number-label gray w-20">
+                    <input type="radio" name="name-number-range" value="10" class="hidden">
+                    <div class="w-100">10</div>
                 </label>
 
-                <label class="color-radio w-20">
-                    <input type="radio" name="name-number-range" value="1-50" class="hidden">
-                    <div class="btn gray w-100">1-50</div>
+                <label class="number-label gray w-20">
+                    <input type="radio" name="name-number-range" value="20" class="hidden">
+                    <div class="w-100">20</div>
                 </label>
 
-                <label class="color-radio w-20">
-                    <input type="radio" name="name-number-range" value="1-100" class="hidden">
-                    <div class="btn gray w-100">1-100</div>
+                <label class="number-label gray w-20">
+                    <input type="radio" name="name-number-range" value="50" class="hidden">
+                    <div class="w-100">50</div>
+                </label>
+            </div>
+            <div class="spacer h-10"></div>
+            <div class="home-selection flex-space-between w-100 mt-10">
+                <label class="number-label gray w-20">
+                    <input type="radio" name="name-number-range" value="100" class="hidden" checked>
+                    <div class="w-100">100</div>
+                </label>
+
+                <label class="number-label gray w-20">
+                    <input type="radio" name="name-number-range" value="200" class="hidden">
+                    <div class="w-100">200</div>
+                </label>
+
+                <label class="number-label gray w-20">
+                    <input type="radio" name="name-number-range" value="500" class="hidden">
+                    <div class="w-100">500</div>
+                </label>
+
+                <label class="number-label gray w-20">
+                    <input type="radio" name="name-number-range" value="1000" class="hidden">
+                    <div class="w-100">1000</div>
                 </label>
             </div>
         </div>
         <div class="spacer h-180"></div>
-        <button class="action-button green" onclick="selectGameScreen(this); startGame();">START</button>
+        <button class="action-button green" onclick="startGame();">START</button>
 
-        <button class="action-button hidden" onclick="selectGameScreen(this); startGame();">Continue Game</button>
+        <button class="action-button hidden" onclick="startGame();">Continue Game</button>
     </div>
 </section>

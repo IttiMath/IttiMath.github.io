@@ -685,8 +685,14 @@ a, a:visited {
 */
 .w-20 {width: 20% !important;}
 .w-100 {width: 100% !important;}
+
+
+.h-10 {height: 10px !important;}
+.h-20 {height: 20px !important;}
+.h-40 {height: 40px !important;}
 .h-180 {height: 180px !important;}
 
+.flex-space-between {display: flex;justify-content: space-between;}
 nav>a {
     color: var(--color-nav-font);
     background-color: var(--color-nav-bg);
@@ -879,7 +885,12 @@ nav>a {
   background-color: var(--color-incorrect);
 }
 
-
+.problem-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -1009,20 +1020,41 @@ main {
   --color-info-bg: var(--color-green-200);
 }
 
-.btn.gray {
-    --btn-color: var(--color-gray-600);
+label.number-label.gray {
+    border-color: var(--color-gray-600);
+    background-color: var(--color-gray-400, currentColor);
 }
 
-.btn.blue {
-    --btn-color: var(--color-blue-600);
+label.number-label.gray:has(input[type="radio"]:checked) {
+  background-color: var(--color-gray-600, currentColor);
+  color: var(--color-gray-100);
 }
 
-.btn.pink {
-    --btn-color: var(--color-pink-600);
+label.number-label.blue {
+    border-color: var(--color-blue-600);
+    background-color: var(--color-blue-400, currentColor);
+}
+label.number-label.blue:has(input[type="radio"]:checked) {
+  background-color: var(--color-blue-600, currentColor);
+  color: var(--color-blue-100);
 }
 
-.btn.green {
-    --btn-color: var(--color-green-600);
+label.number-label.pink {
+    border-color: var(--color-pink-600);
+    background-color: var(--color-pink-400, currentColor);
+}
+label.number-label.pink:has(input[type="radio"]:checked) {
+  background-color: var(--color-pink-600, currentColor);
+  color: var(--color-pink-100);
+}
+
+label.number-label.green {
+    border-color: var(--color-green-600);
+    background-color: var(--color-green-400, currentColor);
+}
+label.number-label.green:has(input[type="radio"]:checked) {
+  background-color: var(--color-green-600, currentColor);
+  color: var(--color-green-100);
 }
 
 
@@ -1069,201 +1101,27 @@ label.operator-label.w-20:has(input[type="radio"]:checked) {
   transform: scale(1.4);
 }
 
-label.operator-label.w-20 {
+label.operator-label {
   transition: transform 0.3s ease;
-}</style></head><body class="light gray"><main class="app-container"><div id="id-logo-container" style="--color-logo: var(--color-gray-600); width: 100%; height: 132px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 220" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><rect width="500" height="220" rx="20" fill="transparent"/><text x="250" y="120" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="88" font-weight="800" fill="var(--color-logo)" text-anchor="middle" letter-spacing="6">ITTI</text><text x="250" y="168" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="var(--color-logo)" text-anchor="middle" letter-spacing="2">INTERACTIVE INTEGER TRAINING</text></svg></div><section id="id-section-game" class="screen"><div class="app-content"><div class="problem-title">1 - 10 | Plus</div><ol class="progress-bar" aria-label="Antwortverlauf für 8 Aufgaben"><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li></ol><div class="spacer"></div><div class="problem-container"><div id="problem">3 + 4</div><div id="equal">=</div><div id="result"><span></span></div></div><div class="spacer"></div><div id="number-pad"><div id="num1" class="number-block" onclick="appendToResult(1)">1</div><div id="num2" class="number-block" onclick="appendToResult(2)">2</div><div id="num3" class="number-block" onclick="appendToResult(3)">3</div><div id="num4" class="number-block" onclick="appendToResult(4)">4</div><div id="num5" class="number-block" onclick="appendToResult(5)">5</div><div id="num6" class="number-block" onclick="appendToResult(6)">6</div><div id="num7" class="number-block" onclick="appendToResult(7)">7</div><div id="num8" class="number-block" onclick="appendToResult(8)">8</div><div id="num9" class="number-block" onclick="appendToResult(9)">9</div><div id="num0" class="number-block zero-btn" onclick="appendToResult(0)">0</div></div><div class="action-buttons-container"><button class="action-button red" onclick="clearResult()">X</button> <button class="action-button green" onclick="checkResult()">&#10004;</button></div></div></section><section id="id-section-home" class="screen active"><div class="app-content"><div class="w-100"><h3>Rechenart</h3><div class="home-selection flex-space-between w-100 mt-10"><label class="operator-label w-20"><input type="radio" name="name-operation" value="plus" class="hidden" checked="checked"><div class="w-100"><svg id="svg-plus" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-blue-600)"/><path d="M30 13V27M23 20H37" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="minus" class="hidden"><div class="w-100"><svg id="svg-minus" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-red-600)"/><path d="M22 20H38" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="multiply" class="hidden"><div class="w-100"><svg id="svg-multiply" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-yellow-500)"/><path d="M24 14L36 26M36 14L24 26" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="divide" class="hidden"><div class="w-100"><svg id="svg-divide" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-green-600)"/><circle cx="30" cy="12" r="2.5" fill="white"/><path d="M22 20H38" stroke="white" stroke-width="4" stroke-linecap="round"/><circle cx="30" cy="28" r="2.5" fill="white"/></svg></div></label></div></div><div class="w-100"><h3>Zahlenbereich</h3><div class="home-selection flex-space-between w-100 mt-10"><label class="color-radio w-20"><input type="radio" name="name-number-range" value="1-10" class="hidden" checked="checked"><div class="btn gray w-100">1-10</div></label> <label class="color-radio w-20"><input type="radio" name="name-number-range" value="1-20" class="hidden"><div class="btn gray w-100">1-20</div></label> <label class="color-radio w-20"><input type="radio" name="name-number-range" value="1-50" class="hidden"><div class="btn gray w-100">1-50</div></label> <label class="color-radio w-20"><input type="radio" name="name-number-range" value="1-100" class="hidden"><div class="btn gray w-100">1-100</div></label></div></div><div class="spacer h-180"></div><button class="action-button green" onclick="selectGameScreen(this); startGame();">START</button> <button class="action-button hidden" onclick="selectGameScreen(this); startGame();">Continue Game</button></div></section><section id="id-section-personal" class="screen"><h2>Personal / Session</h2><p>Informationen zur aktuellen Sitzung:</p><ul><li>Session-ID: #83921</li><li>Status: Aktiv</li></ul></section><section id="id-section-settings" class="screen"><div class="app-content"><div class="settings-section w-100"><span class="font-24 bold">Colors</span><div class="color-options flex-space-between mt-10"><div class="btn gray" onclick="changeColor('gray')">gray</div><div class="btn blue" onclick="changeColor('blue')">blue</div><div class="btn pink" onclick="changeColor('pink')">pink</div><div class="btn green" onclick="changeColor('green')">green</div></div></div></div></section><div id="id-mobile-navbar" class="mobile-navbar"><nav><a onclick="selectScreen(this)" aria-label="Settings" title="Settings">⚙</a> <a onclick="selectScreen(this)" class="active" aria-label="Home" title="Home">⌂</a> <a onclick="selectScreen(this)" aria-label="Personal" title="Personal">👤</a></nav></div></main></body><script>const AUFGABENTABELLE = {
-    "multiply": [
-        {a:1, b:1, result: 1},
-        {a:1, b:2, result: 2},
-        {a:1, b:3, result: 3},
-        {a:1, b:4, result: 4},
-        {a:1, b:5, result: 5},
-        {a:1, b:6, result: 6},
-        {a:1, b:7, result: 7},
-        {a:1, b:8, result: 8},
-        {a:1, b:9, result: 9},
-        {a:1, b:10, result: 10},
-        {a:2, b:1, result: 2},
-        {a:2, b:2, result: 4},
-        {a:2, b:3, result: 6},
-        {a:2, b:4, result: 8},
-        {a:2, b:5, result: 10},
-        {a:2, b:6, result: 12},
-        {a:2, b:7, result: 14},
-        {a:2, b:8, result: 16},
-        {a:2, b:9, result: 18},
-        {a:2, b:10, result: 20},
-        {a:3, b:1, result: 3},
-        {a:3, b:2, result: 6},
-        {a:3, b:3, result: 9},
-        {a:3, b:4, result: 12},
-        {a:3, b:5, result: 15},
-        {a:3, b:6, result: 18},
-        {a:3, b:7, result: 21},
-        {a:3, b:8, result: 24},
-        {a:3, b:9, result: 27},
-        {a:3, b:10, result: 30},
-        {a:4, b:1, result: 4},
-        {a:4, b:2, result: 8},
-        {a:4, b:3, result: 12},
-        {a:4, b:4, result: 16},
-        {a:4, b:5, result: 20},
-        {a:4, b:6, result: 24},
-        {a:4, b:7, result: 28},
-        {a:4, b:8, result: 32},
-        {a:4, b:9, result: 36},
-        {a:4, b:10, result: 40},
-        {a:5, b:1, result: 5},
-        {a:5, b:2, result: 10},
-        {a:5, b:3, result: 15},
-        {a:5, b:4, result: 20},
-        {a:5, b:5, result: 25},
-        {a:5, b:6, result: 30},
-        {a:5, b:7, result: 35},
-        {a:5, b:8, result: 40},
-        {a:5, b:9, result: 45},
-        {a:5, b:10, result: 50},
-        {a:6, b:1, result: 6},
-        {a:6, b:2, result: 12},
-        {a:6, b:3, result: 18},
-        {a:6, b:4, result: 24},
-        {a:6, b:5, result: 30},
-        {a:6, b:6, result: 36},
-        {a:6, b:7, result: 42},
-        {a:6, b:8, result: 48},
-        {a:6, b:9, result: 54},
-        {a:6, b:10, result: 60},
-        {a:7, b:1, result: 7},
-        {a:7, b:2, result: 14},
-        {a:7, b:3, result: 21},
-        {a:7, b:4, result: 28},
-        {a:7, b:5, result: 35},
-        {a:7, b:6, result: 42},
-        {a:7, b:7, result: 49},
-        {a:7, b:8, result: 56},
-        {a:7, b:9, result: 63},
-        {a:7, b:10, result: 70},
-        {a:8, b:1, result: 8},
-        {a:8, b:2, result: 16},
-        {a:8, b:3, result: 24},
-        {a:8, b:4, result: 32},
-        {a:8, b:5, result: 40},
-        {a:8, b:6, result: 48},
-        {a:8, b:7, result: 56},
-        {a:8, b:8, result: 64},
-        {a:8, b:9, result: 72},
-        {a:8, b:10, result: 80},
-        {a:9, b:1, result: 9},
-        {a:9, b:2, result: 18},
-        {a:9, b:3, result: 27},
-        {a:9, b:4, result: 36},
-        {a:9, b:5, result: 45},
-        {a:9, b:6, result: 54},
-        {a:9, b:7, result: 63},
-        {a:9, b:8, result: 72},
-        {a:9, b:9, result: 81},
-        {a:9, b:10, result: 90},
-        {a:10, b:1, result: 10},
-        {a:10, b:2, result: 20},
-        {a:10, b:3, result: 30},
-        {a:10, b:4, result: 40},
-        {a:10, b:5, result: 50},
-        {a:10, b:6, result: 60},
-        {a:10, b:7, result: 70},
-        {a:10, b:8, result: 80},
-        {a:10, b:9, result: 90},
-        {a:10, b:10, result: 100},
-    ],
-
-    "divide": [
-        {a:100, b:10, result: 10},
-        {a:90, b:10, result: 9},
-        {a:80, b:10, result: 8},
-        {a:70, b:10, result: 7},
-        {a:60, b:10, result: 6},
-        {a:50, b:10, result: 5},
-        {a:40, b:10, result: 4},
-        {a:30, b:10, result: 3},
-        {a:20, b:10, result: 2},
-        {a:10, b:10, result: 1},
-        {a:90, b:9, result: 10},
-        {a:81, b:9, result: 9},
-        {a:72, b:9, result: 8},
-        {a:63, b:9, result: 7},
-        {a:54, b:9, result: 6},
-        {a:45, b:9, result: 5},
-        {a:36, b:9, result: 4},
-        {a:27, b:9, result: 3},
-        {a:18, b:9, result: 2},
-        {a:9, b:9, result: 1},
-        {a:80, b:8, result: 10},
-        {a:72, b:8, result: 9},
-        {a:64, b:8, result: 8},
-        {a:56, b:8, result: 7},
-        {a:48, b:8, result: 6},
-        {a:40, b:8, result: 5},
-        {a:32, b:8, result: 4},
-        {a:24, b:8, result: 3},
-        {a:16, b:8, result: 2},
-        {a:8, b:8, result: 1},
-        {a:70, b:7, result: 10},
-        {a:63, b:7, result: 9},
-        {a:56, b:7, result: 8},
-        {a:49, b:7, result: 7},
-        {a:42, b:7, result: 6},
-        {a:35, b:7, result: 5},
-        {a:28, b:7, result: 4},
-        {a:21, b:7, result: 3},
-        {a:14, b:7, result: 2},
-        {a:7, b:7, result: 1},
-        {a:60, b:6, result: 10},
-        {a:54, b:6, result: 9},
-        {a:48, b:6, result: 8},
-        {a:42, b:6, result: 7},
-        {a:36, b:6, result: 6},
-        {a:30, b:6, result: 5},
-        {a:24, b:6, result: 4},
-        {a:18, b:6, result: 3},
-        {a:12, b:6, result: 2},
-        {a:6, b:6, result: 1},
-        {a:50, b:5, result: 10},
-        {a:45, b:5, result: 9},
-        {a:40, b:5, result: 8},
-        {a:35, b:5, result: 7},
-        {a:30, b:5, result: 6},
-        {a:25, b:5, result: 5},
-        {a:20, b:5, result: 4},
-        {a:15, b:5, result: 3},
-        {a:10, b:5, result: 2},
-        {a:40, b:4, result: 10},
-        {a:36, b:4, result: 9},
-        {a:32, b:4, result: 8},
-        {a:28, b:4, result: 7},
-        {a:24, b:4, result: 6},
-        {a:20, b:4, result: 5},
-        {a:16, b:4, result: 4},
-        {a:12, b:4, result: 3},
-        {a:8, b:4, result: 2},
-        {a:4, b:4, result: 1},
-        {a:10, b:2, result: 5},
-        {a:8, b:2, result: 4},
-        {a:6, b:2, result: 3},
-        {a:4, b:2, result: 2},
-        {a:2, b:2, result: 1},
-        {a:10, b:1, result: 10},
-        {a:9, b:1, result: 9},
-        {a:8, b:1, result: 8},
-        {a:7, b:1, result: 7},
-        {a:6, b:1, result: 6},
-        {a:5, b:1, result: 5},
-        {a:4, b:1, result: 4},
-        {a:3, b:1, result: 3},
-        {a:2, b:1, result: 2},
-        {a:1, b:1, result: 1}
-    ]
 }
 
-function selectScreen(element) {
+.number-label {
+    height: 40px;
+    padding: 7px 10px 5px 10px;
+    font-size: 16px;
+    border-radius: 3px;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid;
+    transition: 0.3s;
+    text-align: center;
+}
+
+label.number-label:has(input[type="radio"]:checked) {
+  transform: scale(1.2);
+  font-size: 18px;
+}</style></head><body class="light gray"><main class="app-container"><div id="id-logo-container" style="--color-logo: var(--color-gray-600); width: 100%; height: 132px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 220" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><rect width="500" height="220" rx="20" fill="transparent"/><text x="250" y="120" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="88" font-weight="800" fill="var(--color-logo)" text-anchor="middle" letter-spacing="6">ITTI</text><text x="250" y="168" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="var(--color-logo)" text-anchor="middle" letter-spacing="2">INTERACTIVE INTEGER TRAINING</text></svg></div><section id="id-section-game" class="screen"><div class="app-content"><div class="problem-title"></div><ol class="progress-bar" aria-label="Antwortverlauf für 8 Aufgaben"><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li></ol><div class="spacer"></div><div class="problem-container"><div id="problem">3 + 4</div><div id="equal">=</div><div id="result"><span></span></div></div><div class="spacer"></div><div id="number-pad"><div id="num1" class="number-block" onclick="appendToResult(1)">1</div><div id="num2" class="number-block" onclick="appendToResult(2)">2</div><div id="num3" class="number-block" onclick="appendToResult(3)">3</div><div id="num4" class="number-block" onclick="appendToResult(4)">4</div><div id="num5" class="number-block" onclick="appendToResult(5)">5</div><div id="num6" class="number-block" onclick="appendToResult(6)">6</div><div id="num7" class="number-block" onclick="appendToResult(7)">7</div><div id="num8" class="number-block" onclick="appendToResult(8)">8</div><div id="num9" class="number-block" onclick="appendToResult(9)">9</div><div id="num0" class="number-block zero-btn" onclick="appendToResult(0)">0</div></div><div class="action-buttons-container"><button class="action-button red" onclick="clearResult()">X</button> <button class="action-button green" onclick="checkResult()">&#10004;</button></div></div></section><section id="id-section-home" class="screen active"><div class="app-content"><div class="w-100"><div class="spacer h-20"></div><div class="home-selection flex-space-between w-100 mt-10"><label class="operator-label w-20"><input type="radio" name="name-operation" value="plus" class="hidden" checked="checked"><div class="w-100"><svg id="svg-plus" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-blue-600)"/><path d="M30 13V27M23 20H37" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="minus" class="hidden"><div class="w-100"><svg id="svg-minus" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-red-600)"/><path d="M22 20H38" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="multiply" class="hidden"><div class="w-100"><svg id="svg-multiply" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-yellow-500)"/><path d="M24 14L36 26M36 14L24 26" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="divide" class="hidden"><div class="w-100"><svg id="svg-divide" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-green-600)"/><circle cx="30" cy="12" r="2.5" fill="white"/><path d="M22 20H38" stroke="white" stroke-width="4" stroke-linecap="round"/><circle cx="30" cy="28" r="2.5" fill="white"/></svg></div></label></div></div><div class="spacer h-40"></div><div class="w-100"><div class="home-selection flex-space-between w-100 mt-10"><label class="number-label gray w-20"><input type="radio" name="name-number-range" value="5" class="hidden" checked="checked"><div class="w-100">5</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="10" class="hidden"><div class="w-100">10</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="20" class="hidden"><div class="w-100">20</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="50" class="hidden"><div class="w-100">50</div></label></div><div class="spacer h-10"></div><div class="home-selection flex-space-between w-100 mt-10"><label class="number-label gray w-20"><input type="radio" name="name-number-range" value="100" class="hidden" checked="checked"><div class="w-100">100</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="200" class="hidden"><div class="w-100">200</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="500" class="hidden"><div class="w-100">500</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="1000" class="hidden"><div class="w-100">1000</div></label></div></div><div class="spacer h-180"></div><button class="action-button green" onclick="startGame();">START</button> <button class="action-button hidden" onclick="startGame();">Continue Game</button></div></section><section id="id-section-personal" class="screen"><h2>Personal / Session</h2><p>Informationen zur aktuellen Sitzung:</p><ul><li>Session-ID: #83921</li><li>Status: Aktiv</li></ul></section><section id="id-section-settings" class="screen"><div class="app-content"><div class="settings-section w-100"><span class="font-24 bold">Colors</span><div class="color-options flex-space-between mt-10"><div class="btn gray" onclick="changeColor('gray')">gray</div><div class="btn blue" onclick="changeColor('blue')">blue</div><div class="btn pink" onclick="changeColor('pink')">pink</div><div class="btn green" onclick="changeColor('green')">green</div></div></div></div></section><div id="id-mobile-navbar" class="mobile-navbar"><nav><a onclick="selectScreen(this)" aria-label="Settings" title="Settings">⚙</a> <a onclick="selectScreen(this)" class="active" aria-label="Home" title="Home">⌂</a> <a onclick="selectScreen(this)" aria-label="Personal" title="Personal">👤</a></nav></div></main></body><script>function selectScreen(element) {
     // switch to active screen
     const name = element.title.trim().toLowerCase();
     document.querySelectorAll('.screen').forEach(_screen => {
@@ -1281,7 +1139,7 @@ function selectScreen(element) {
 }
 
 
-function selectGameScreen(element) {
+function selectGameScreen() {
     // switch to active screen
     document.querySelectorAll('.screen').forEach(_screen => {
         _screen.classList.remove('active');
@@ -1324,15 +1182,18 @@ function changeLook() {
 }
 window.AufgabenInSession = 8;
 window.CurrentAufgabenIndex = 0;
-window.AufgabenmHistory = [];
+window.AufgabenHistory = [];
 
 function startNewSession() {
     // Init session parameters
     window.operator = document.querySelector('input[name="name-operation"]:checked').value;
     window.numberRange = document.querySelector('input[name="name-number-range"]:checked').value;
-    window.maxNumber = parseInt(window.numberRange.split('-')[1]);
+    window.maxNumber = parseInt(window.numberRange);
     // Set Title
-    document.querySelector('.problem-title').textContent = `${window.operator} | ${window.numberRange}`;
+    document.querySelector('.problem-title').innerHTML = document.getElementById("svg-" + window.operator).outerHTML;
+    document.querySelector('.problem-title').innerHTML += `<div class="number-label"> ${window.numberRange}</div>`;
+
+    
     
     // Progress bar initialization
     const progressSegments = document.querySelectorAll('.progress-segment');
@@ -1342,45 +1203,77 @@ function startNewSession() {
     }
     
     // Initialize session history and counters
-    window.AufgabenmHistory.push({
-        index: window.AufgabenmHistory.length,
+    window.AufgabenHistory.push({
+        index: window.AufgabenHistory.length,
         aufgaben: []
     })
     window.AufgabenInSession = 8;
     window.CurrentAufgabenIndex = 0;
 }
+
+function AufgabeSeenInSession(aufgabe) {
+    if (aufgabe == {} || aufgabe == null || Object.keys(aufgabe).length === 0) return false;
+
+    let currentSession = window.AufgabenHistory[window.AufgabenHistory.length - 1];
+    for (let a of currentSession.aufgaben) {
+        if (a.a === aufgabe.a && a.b === aufgabe.b && a.result === aufgabe.result) {
+            return true;
+        }
+    }
+    return false;
+}
 window.operator = "+";
-window.numberRange = "1-10";
-window.maxNumber = 10;
+window.numberRange = "1-100";
+window.maxNumber = 100;
 window.currentProblem = {};
+
+var IHaveSeenZero = false;
 
 
 function startGame() {
     startNewSession()
-
-    generateAufgabe();
-
-    selectScreen('game');
+    selectGameScreen()
+    
+    ShowNumbersBasedOnMaxNumber();
+    
+    window.currentProblem = generateAufgabe()
+    
+    WriteAufgabe();
+    
 }
 
 function generateAufgabe() {
-    if (window.operator === "plus")
-        window.currentProblem = generateAufgabePlus()
-    if (window.operator === "minus")
-        window.currentProblem = generateAufgabeMinus()
-    if (window.operator === "multiply")
-        window.currentProblem = generateAufgabeMultiply()
-    if (window.operator === "divide")
-        window.currentProblem = generateAufgabeDivide()
-
-    document.getElementById("problem").innerHTML = window.currentProblem.a + " " + _operator(window.operator) + " " + window.currentProblem.b;
-    document.getElementById("result").firstElementChild.textContent = "";
-    document.getElementById("result").style.color = "";
+    let ret = {}
+    let safetyCount = 0;
+    while (AufgabeSeenInSession(ret) || 
+            Object.keys(ret).length === 0 ||
+            window.operator === "multiply" && window.maxNumber < 11 ||
+            window.operator === "divide" && window.maxNumber < 11 ||
+            safetyCount < 100) {
+                
+        if (safetyCount >= 100) {
+            console.warn("Safety count exceeded 100 iterations while generating problem.");
+            break;
+        }
+        safetyCount++;
+        if (window.operator === "plus")
+            ret = generateAufgabePlus()
+        if (window.operator === "minus")
+            ret = generateAufgabeMinus()
+        if (window.operator === "multiply")
+            ret = generateAufgabeMultiply()
+        if (window.operator === "divide")
+            ret = generateAufgabeDivide()
+    }
+    return ret;
 }
 
 function generateAufgabePlus() {
-    let a = Math.floor(Math.random() * window.maxNumber);
-    let b = Math.floor(Math.random() * (window.maxNumber - a));
+    // random Aufgaabe from 1 to maxNumber
+    let a = Math.floor((1 - Math.random()) * (window.maxNumber-1)) + 1;
+    let newMaxNumber = window.maxNumber - a;
+    let b = Math.floor((1 - Math.random()) * newMaxNumber) + 1;
+
     let result = a + b;
     return { a: a, b: b, result: result };
 }
@@ -1390,21 +1283,33 @@ function generateAufgabeMinus() {
     if (window.maxNumber == 20) minNumber = 10;
     if (window.maxNumber == 50) minNumber = 20;
     if (window.maxNumber == 100) minNumber = 50;
-    let a = Math.floor(Math.random() * (window.maxNumber - minNumber)) + minNumber;
+    let a = Math.floor(Math.random() * (window.maxNumber - minNumber - 1)) + minNumber + 1;
     let b = Math.floor(Math.random() * a);
     let result = a - b;
     return { a: a, b: b, result: result };
 }
 function generateAufgabeMultiply() {
-    let problems = SubsetFrom_Aufgabentabelle()
-    let randomProblem = problems[Math.floor(Math.random() * problems.length)];
-    return randomProblem;
+    // 1-math = ]0; 1], die unteren Grenze minFator würde also nie erreicht
+    // "+1" vergrßert den Bereich, aus dem die Zufallszahlen gewählt werden, sodass die unteren Grenzen erreicht werden können.
+    
+    let minFactor = 2;
+    if (window.maxNumber < 11) minFactor = 1;
+   
+    let maxA = Math.floor(Math.sqrt(window.maxNumber));
+    let a = Math.floor((1 - Math.random()) * (maxA - minFactor+1)) + minFactor;
+    let maxB = Math.floor(window.maxNumber / a) // this is not an integer
+    let b = Math.floor((1 - Math.random()) * (maxB - minFactor+1)) + minFactor;
+    let result = a * b;
+    return { a: a, b: b, result: result };
 }
 
 function generateAufgabeDivide() {
-    let problems = SubsetFrom_Aufgabentabelle()
-    let randomProblem = problems[Math.floor(Math.random() * problems.length)];
-    return randomProblem;
+    let multiplyProblem = generateAufgabeMultiply();
+    // inverses Problem: a / b = result
+    let a = multiplyProblem.result;
+    let b = multiplyProblem.b;
+    let result = multiplyProblem.a;
+    return { a: a, b: b, result: result };
 }
 
 
@@ -1441,6 +1346,8 @@ function appendToResult(content) {
         resultElement.style.color = "";
         resultElement.firstElementChild.textContent = "";
     }
+
+    if (resultElement.textContent.length > 4) return;
     resultElement.firstElementChild.textContent += content;
 }
 
@@ -1456,7 +1363,7 @@ async function checkResult() {
     let problem = window.currentProblem;
 
     // store the user's answer in the session history
-    window.AufgabenmHistory[window.AufgabenmHistory.length - 1].aufgaben.push({ ...problem, userAnswer: userAnswer });
+    window.AufgabenHistory[window.AufgabenHistory.length - 1].aufgaben.push({ ...problem, userAnswer: userAnswer });
     window.CurrentAufgabenIndex += 1;
 
     // update the progress bar
@@ -1466,7 +1373,8 @@ async function checkResult() {
         nextProgressSegment.classList.add('is-correct');
         SuccessJump(resultElement)
         await new Promise(resolve => setTimeout(resolve, 500)); // Wait for the success jump animation to complete
-        generateAufgabe();
+        window.currentProblem = generateAufgabe()
+        WriteAufgabe();
     } else {
         nextProgressSegment.classList.add('is-incorrect');
         ErrorShake(resultElement)
@@ -1475,6 +1383,22 @@ async function checkResult() {
     if (window.CurrentAufgabenIndex >= window.AufgabenInSession) {
         startGame();
     }
+}
+
+
+function WriteAufgabe() {
+    document.getElementById("problem").innerHTML = window.currentProblem.a + " " + _operator(window.operator) + " " + window.currentProblem.b;
+    document.getElementById("result").firstElementChild.textContent = "";
+    document.getElementById("result").style.color = "";
+}
+
+function WriteSVG(id) {
+    // find the svg with the id in the current document
+    const svgElement = document.getElementById(id);
+    if (svgElement) {
+        return svgElement.outerHTML;
+    }
+    return "";
 }
 
 function ErrorShake(element, color = "var(--color-incorrect)") {
@@ -1495,4 +1419,38 @@ function SuccessJump(element, color = "var(--color-correct)") {
     setTimeout(() => {
         element.classList.remove("success-jump");
     }, 1000);
+}
+
+function ShowNumbersBasedOnMaxNumber() {
+    if (window.maxNumber == 5) {
+        ShowOnly1To5();
+    } else {
+        ShowAllNumbers();
+    }
+}
+
+function ShowOnly1To5() {
+   document.getElementById("num1").style.display = "inline-block";
+   document.getElementById("num2").style.display = "inline-block";
+   document.getElementById("num3").style.display = "inline-block";
+   document.getElementById("num4").style.display = "inline-block";
+   document.getElementById("num5").style.display = "inline-block";
+   document.getElementById("num6").style.display = "none";
+   document.getElementById("num7").style.display = "none";
+   document.getElementById("num8").style.display = "none";
+   document.getElementById("num9").style.display = "none";
+   document.getElementById("num0").style.display = "none";
+}
+
+function ShowAllNumbers() {
+   document.getElementById("num1").style.display = "inline-block";
+   document.getElementById("num2").style.display = "inline-block";
+   document.getElementById("num3").style.display = "inline-block";
+   document.getElementById("num4").style.display = "inline-block";
+   document.getElementById("num5").style.display = "inline-block";
+   document.getElementById("num6").style.display = "inline-block";
+   document.getElementById("num7").style.display = "inline-block";
+   document.getElementById("num8").style.display = "inline-block";
+   document.getElementById("num9").style.display = "inline-block";
+   document.getElementById("num0").style.display = "inline-block";
 }</script></html>

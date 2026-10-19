@@ -36,6 +36,7 @@ try {
         'C:/git/mo-hi.github.io/basis/css/b.css',
         // 'C:/git/mo-hi.github.io/navbar/css/nav.css',
 
+        './node css/basis.css',
         './node css/nav.css',
         './node css/problemContainer.css',
         './node css/actionItems.css',
@@ -44,7 +45,7 @@ try {
         './node css/colors.css',
         './node css/btn.css',
         './node css/rest.css',
-        './node css/operatorSVG.css',
+        './node css/labels.css',
     ]
     for (let path of cssPaths) {
         cssString += fs.readFileSync(path, 'utf8') + '\n';
@@ -65,7 +66,6 @@ try {
     let scriptString = '';
     const scriptPaths = [
         // 'C:/git/mo-hi.github.io/basis/js/customElements_SelectionPill.js',
-        './js/Aufgabentabelle.js',
         './js/selectScreen.js',
         './js/changeTheme.js',
         './js/gameSession.js',
