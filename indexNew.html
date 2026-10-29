@@ -1796,14 +1796,17 @@ function generateAufgabeMinus() {
 }
 
 function generateAufgabeMultiply() {
-    if (window.sessionProblems.length === 0) {
-        let problems = AUFGABENTABELLE["multiply"][window.maxNumber];
-        window.sessionProblems = getSubsetOfEight(problems);
+    let problems = AUFGABENTABELLE["multiply"][window.numberRange];
+    // expand: problems with higher weight appear more frequently
+    let expandedProblems = [];
+    for (let p of problems) {
+        for (let i = 0; i < p.weight; i++) {
+            expandedProblems.push(p);
+        }
     }
+    let problem = expandedProblems[Math.floor(Math.random() * expandedProblems.length)];
 
-    window.currentProblemIndex += 1
-    let problem = window.sessionProblems[window.currentProblemIndex];
-    
+
     let CoinFlip = Math.random() < 0.5;
     if (CoinFlip)
         return { a: problem.b, b: problem.a, result: problem.result, difficulty: determineDifficulty({a: problem.b, b: problem.a})};
