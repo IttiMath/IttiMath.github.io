@@ -4,6 +4,7 @@ import { PurgeCSS } from 'purgecss';
 import { minify } from 'html-minifier-terser';
 
 const screensDir = './screens';
+const ScriptsDir = './js';
 
 const templatePath = './template.html';
 const outputPath = './indexNew.html';
@@ -11,6 +12,7 @@ const outputPath = './indexNew.html';
 // svgs
 const logoPath = './svgs/svgLogo.html'
 const operatorsPath = './svgs/operators.html';
+const starsPath = './svgs/star.html';
 
 
 try {
@@ -62,20 +64,26 @@ try {
     });
     let minCss = `<style>\n${purgeCSSResults[0].css}\n</style>`;
 
-    // Nur JavaScript-Dateien aus dem node css-Ordner einfügen
+
+    // JAVASCRIPT   #########################################################################
     let scriptString = '';
     const scriptPaths = [
         // 'C:/git/mo-hi.github.io/basis/js/customElements_SelectionPill.js',
-        './js/selectScreen.js',
-        './js/changeTheme.js',
-        './js/gameSession.js',
-        './js/game.js',
-        './js/user.js',
-        './js/visualEffects.js',
+        './js_node/weights.js',
     ]
     for (let path of scriptPaths) {
         scriptString += fs.readFileSync(path, 'utf8') + '\n';
     }
+
+    const scriptFiles = fs.readdirSync(ScriptsDir).filter(file => file.endsWith('.js'));
+    const ExcludeFiles = ['mathfit.js'];
+    for (let file of scriptFiles) {
+        if (ExcludeFiles.includes(file)) continue;
+        const filePath = path.join(ScriptsDir, file);
+        scriptString += fs.readFileSync(filePath, 'utf8') + '\n';
+    }
+    // --------------------------------------------------------------------------------------
+
 
 
     // build index from template
@@ -94,6 +102,13 @@ try {
     template = template.replace('<!-- SVG-MINUS NODE-JS -->', getSvgById(operatorsText, 'svg-minus'));
     template = template.replace('<!-- SVG-MULTIPLY NODE-JS -->', getSvgById(operatorsText, 'svg-multiply'));
     template = template.replace('<!-- SVG-DIVIDE NODE-JS -->', getSvgById(operatorsText, 'svg-divide'));
+
+    // replace stars
+    const starsText = fs.readFileSync(starsPath, 'utf8');
+    template = template.replace('<!-- SVG-STAR NODE-JS -->', getSvgById(starsText, 'svg-star'));
+    template = template.replace('<!-- SVG-STAR NODE-JS -->', getSvgById(starsText, 'svg-star'));
+    template = template.replace('<!-- SVG-STAR NODE-JS -->', getSvgById(starsText, 'svg-star'));
+    template = template.replace('<!-- SVG-STAR-FILLED NODE-JS -->', getSvgById(starsText, 'svg-star-filled'));
 
 
     // 4. Fertige index.html schreiben

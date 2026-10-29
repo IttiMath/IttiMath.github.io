@@ -780,6 +780,14 @@ nav>a {
 	border-bottom: 2px solid var(--color-gray-400, #9ca3af);
 }
 
+#id-difficulty-absolute-position {
+    display: flex;
+    flex-direction: row; /* Sterne von links nach rechts */
+    align-items: center; 
+	width: 120px;   
+    gap: 4px;               
+}
+
 @media (max-width: 360px) {
 	.problem-container {
 		gap: 8px;
@@ -851,7 +859,7 @@ nav>a {
     align-items: center;
     width: 100%;
     max-width: 380px; /* Restricts maximum mobile width for consistent look */
-    gap: 16px;
+    gap: 6px;
     text-align: center;
 }
 
@@ -1121,30 +1129,457 @@ label.operator-label {
 label.number-label:has(input[type="radio"]:checked) {
   transform: scale(1.2);
   font-size: 18px;
-}</style></head><body class="light gray"><main class="app-container"><div id="id-logo-container" style="--color-logo: var(--color-gray-600); width: 100%; height: 132px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 220" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><rect width="500" height="220" rx="20" fill="transparent"/><text x="250" y="120" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="88" font-weight="800" fill="var(--color-logo)" text-anchor="middle" letter-spacing="6">ITTI</text><text x="250" y="168" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="var(--color-logo)" text-anchor="middle" letter-spacing="2">INTERACTIVE INTEGER TRAINING</text></svg></div><section id="id-section-game" class="screen"><div class="app-content"><div class="problem-title"></div><ol class="progress-bar" aria-label="Antwortverlauf für 8 Aufgaben"><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li></ol><div class="spacer"></div><div class="problem-container"><div id="problem">3 + 4</div><div id="equal">=</div><div id="result"><span></span></div></div><div class="spacer"></div><div id="number-pad"><div id="num1" class="number-block" onclick="appendToResult(1)">1</div><div id="num2" class="number-block" onclick="appendToResult(2)">2</div><div id="num3" class="number-block" onclick="appendToResult(3)">3</div><div id="num4" class="number-block" onclick="appendToResult(4)">4</div><div id="num5" class="number-block" onclick="appendToResult(5)">5</div><div id="num6" class="number-block" onclick="appendToResult(6)">6</div><div id="num7" class="number-block" onclick="appendToResult(7)">7</div><div id="num8" class="number-block" onclick="appendToResult(8)">8</div><div id="num9" class="number-block" onclick="appendToResult(9)">9</div><div id="num0" class="number-block zero-btn" onclick="appendToResult(0)">0</div></div><div class="action-buttons-container"><button class="action-button red" onclick="clearResult()">X</button> <button class="action-button green" onclick="checkResult()">&#10004;</button></div></div></section><section id="id-section-home" class="screen active"><div class="app-content"><div class="w-100"><div class="spacer h-20"></div><div class="home-selection flex-space-between w-100 mt-10"><label class="operator-label w-20"><input type="radio" name="name-operation" value="plus" class="hidden" checked="checked"><div class="w-100"><svg id="svg-plus" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-blue-600)"/><path d="M30 13V27M23 20H37" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="minus" class="hidden"><div class="w-100"><svg id="svg-minus" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-red-600)"/><path d="M22 20H38" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="multiply" class="hidden"><div class="w-100"><svg id="svg-multiply" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-yellow-500)"/><path d="M24 14L36 26M36 14L24 26" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="divide" class="hidden"><div class="w-100"><svg id="svg-divide" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-green-600)"/><circle cx="30" cy="12" r="2.5" fill="white"/><path d="M22 20H38" stroke="white" stroke-width="4" stroke-linecap="round"/><circle cx="30" cy="28" r="2.5" fill="white"/></svg></div></label></div></div><div class="spacer h-40"></div><div class="w-100"><div class="home-selection flex-space-between w-100 mt-10"><label class="number-label gray w-20"><input type="radio" name="name-number-range" value="5" class="hidden" checked="checked"><div class="w-100">5</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="10" class="hidden"><div class="w-100">10</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="20" class="hidden"><div class="w-100">20</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="50" class="hidden"><div class="w-100">50</div></label></div><div class="spacer h-10"></div><div class="home-selection flex-space-between w-100 mt-10"><label class="number-label gray w-20"><input type="radio" name="name-number-range" value="100" class="hidden" checked="checked"><div class="w-100">100</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="200" class="hidden"><div class="w-100">200</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="500" class="hidden"><div class="w-100">500</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="1000" class="hidden"><div class="w-100">1000</div></label></div></div><div class="spacer h-180"></div><button class="action-button green" onclick="startGame();">START</button> <button class="action-button hidden" onclick="startGame();">Continue Game</button></div></section><section id="id-section-personal" class="screen"><h2>Personal / Session</h2><p>Informationen zur aktuellen Sitzung:</p><ul><li>Session-ID: #83921</li><li>Status: Aktiv</li></ul></section><section id="id-section-settings" class="screen"><div class="app-content"><div class="settings-section w-100"><span class="font-24 bold">Colors</span><div class="color-options flex-space-between mt-10"><div class="btn gray" onclick="changeColor('gray')">gray</div><div class="btn blue" onclick="changeColor('blue')">blue</div><div class="btn pink" onclick="changeColor('pink')">pink</div><div class="btn green" onclick="changeColor('green')">green</div></div></div></div></section><div id="id-mobile-navbar" class="mobile-navbar"><nav><a onclick="selectScreen(this)" aria-label="Settings" title="Settings">⚙</a> <a onclick="selectScreen(this)" class="active" aria-label="Home" title="Home">⌂</a> <a onclick="selectScreen(this)" aria-label="Personal" title="Personal">👤</a></nav></div></main></body><script>function selectScreen(element) {
-    // switch to active screen
-    const name = element.title.trim().toLowerCase();
-    document.querySelectorAll('.screen').forEach(_screen => {
-        _screen.classList.remove('active');
-    });
-    const targetScreen = document.getElementById('id-section-' + name.toLowerCase());
-    if (targetScreen) {
-        targetScreen.classList.add('active');
+}</style></head><body class="light gray"><main class="app-container"><div id="id-logo-container" style="--color-logo: var(--color-gray-600); width: 100%; height: 132px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 220" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><rect width="500" height="220" rx="20" fill="transparent"/><text x="250" y="120" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="88" font-weight="800" fill="var(--color-logo)" text-anchor="middle" letter-spacing="6">ITTI</text><text x="250" y="168" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="var(--color-logo)" text-anchor="middle" letter-spacing="2">INTERACTIVE INTEGER TRAINING</text></svg></div><section id="id-section-game" class="screen"><div class="app-content"><div class="problem-title"></div><ol class="progress-bar" aria-label="Antwortverlauf für 8 Aufgaben"><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li></ol><div id="collection-of-stars" style="height: 50px; width:200%; transform: scale(0.5);text-align: left;"></div><div class="spacer"></div><div class="problem-container"><div id="problem">3 x 27</div><div id="equal">=</div><div id="result"><span></span></div></div><div class="spacer"></div><div id="number-pad"><div id="num1" class="number-block" onclick="appendToResult(1)">1</div><div id="num2" class="number-block" onclick="appendToResult(2)">2</div><div id="num3" class="number-block" onclick="appendToResult(3)">3</div><div id="num4" class="number-block" onclick="appendToResult(4)">4</div><div id="num5" class="number-block" onclick="appendToResult(5)">5</div><div id="num6" class="number-block" onclick="appendToResult(6)">6</div><div id="num7" class="number-block" onclick="appendToResult(7)">7</div><div id="num8" class="number-block" onclick="appendToResult(8)">8</div><div id="num9" class="number-block" onclick="appendToResult(9)">9</div><div id="num0" class="number-block zero-btn" onclick="appendToResult(0)">0</div></div><div class="action-buttons-container"><button class="action-button red" onclick="clearResult()">X</button> <button class="action-button green" onclick="checkResult()">&#10004;</button></div></div><div id="id-difficulty-absolute-position" style="position: absolute; top: 300px; left: 15px;transform: scale(0.5);">1 2 3</div></section><section id="id-section-home" class="screen active"><div class="app-content"><div class="w-100"><div class="spacer h-20"></div><div class="home-selection flex-space-between w-100 mt-10"><label class="operator-label w-20"><input type="radio" name="name-operation" value="plus" class="hidden" checked="checked"><div class="w-100"><svg id="svg-plus" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-blue-600)"/><path d="M30 13V27M23 20H37" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="minus" class="hidden"><div class="w-100"><svg id="svg-minus" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-red-600)"/><path d="M22 20H38" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="multiply" class="hidden"><div class="w-100"><svg id="svg-multiply" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-yellow-500)"/><path d="M24 14L36 26M36 14L24 26" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="divide" class="hidden"><div class="w-100"><svg id="svg-divide" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-green-600)"/><circle cx="30" cy="12" r="2.5" fill="white"/><path d="M22 20H38" stroke="white" stroke-width="4" stroke-linecap="round"/><circle cx="30" cy="28" r="2.5" fill="white"/></svg></div></label></div></div><div class="spacer h-40"></div><div class="w-100"><div class="home-selection flex-space-between w-100 mt-10"><label class="number-label gray w-20"><input type="radio" name="name-number-range" value="5" class="hidden" checked="checked"><div class="w-100">5</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="10" class="hidden"><div class="w-100">10</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="20" class="hidden"><div class="w-100">20</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="50" class="hidden"><div class="w-100">50</div></label></div><div class="spacer h-10"></div><div class="home-selection flex-space-between w-100 mt-10"><label class="number-label gray w-20"><input type="radio" name="name-number-range" value="100" class="hidden" checked="checked"><div class="w-100">100</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="200" class="hidden"><div class="w-100">200</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="500" class="hidden"><div class="w-100">500</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="1000" class="hidden"><div class="w-100">1000</div></label></div></div><div class="spacer h-180"></div><button class="action-button green" onclick="user_Start();">START</button> <button class="action-button hidden" onclick="startGame();">Continue Game</button></div></section><section id="id-section-personal" class="screen"><h2>Personal / Session</h2><p>Informationen zur aktuellen Sitzung:</p><ul><li>Session-ID: #83921</li><li>Status: Aktiv</li></ul></section><section id="id-section-settings" class="screen"><div class="app-content"><div class="settings-section w-100"><span class="font-24 bold">Colors</span><div class="color-options flex-space-between mt-10"><div class="btn gray" onclick="changeColor('gray')">gray</div><div class="btn blue" onclick="changeColor('blue')">blue</div><div class="btn pink" onclick="changeColor('pink')">pink</div><div class="btn green" onclick="changeColor('green')">green</div></div></div></div></section><div id="id-mobile-navbar" class="mobile-navbar"><nav><a onclick="selectScreen(this)" aria-label="Settings" title="Settings">⚙</a> <a onclick="selectScreen(this)" class="active" aria-label="Home" title="Home">⌂</a> <a onclick="selectScreen(this)" aria-label="Personal" title="Personal">👤</a></nav></div></main><div class="hidden"><svg id="svg-star-filled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40"><path d="M20 2l5.5 11.5L38 15l-9 8.5L31 36l-11-6-11 6 2.5-12.5L2 15l12.5-1.5L20 2z" fill="var(--color-yellow-400)" stroke="var(--color-yellow-400)" stroke-width="1.5" stroke-linejoin="round"/></svg></div></body><script src="js_libs/brain.js"></script><script>const trainedWeights = {
+  "type": "NeuralNetwork",
+  "sizes": [
+    3,
+    12,
+    12,
+    3
+  ],
+  "layers": [
+    {
+      "weights": [],
+      "biases": []
+    },
+    {
+      "weights": [
+        [
+          -0.12412387877702713,
+          0.9252216815948486,
+          0.45341426134109497
+        ],
+        [
+          -0.16892094910144806,
+          1.5485825538635254,
+          1.3480875492095947
+        ],
+        [
+          -0.588356614112854,
+          6.498465538024902,
+          -0.04583391919732094
+        ],
+        [
+          -0.29402869939804077,
+          1.3957988023757935,
+          7.753334045410156
+        ],
+        [
+          -0.04834005981683731,
+          4.076731204986572,
+          -9.422184944152832
+        ],
+        [
+          -0.23811547458171844,
+          1.976962685585022,
+          1.841821551322937
+        ],
+        [
+          -0.09086352586746216,
+          0.7000824809074402,
+          -0.23312732577323914
+        ],
+        [
+          -0.452090859413147,
+          4.329505920410156,
+          4.265982151031494
+        ],
+        [
+          -0.11842714250087738,
+          0.4567374885082245,
+          0.13956619799137115
+        ],
+        [
+          -0.3113172650337219,
+          12.124821662902832,
+          -4.012437343597412
+        ],
+        [
+          -0.2740604281425476,
+          2.6718764305114746,
+          2.3766417503356934
+        ],
+        [
+          -0.5661768913269043,
+          4.923254489898682,
+          4.033803462982178
+        ]
+      ],
+      "biases": [
+        -1.2227576971054077,
+        -2.262998342514038,
+        -3.136061191558838,
+        -3.5650508403778076,
+        0.5825076103210449,
+        -2.608720302581787,
+        -0.08072210103273392,
+        -3.9675180912017822,
+        -0.12495853006839752,
+        -1.2031757831573486,
+        -2.957167148590088,
+        -4.115589618682861
+      ]
+    },
+    {
+      "weights": [
+        [
+          0.29939427971839905,
+          -0.5468853116035461,
+          -2.2104365825653076,
+          -1.8766629695892334,
+          0.8029868602752686,
+          -0.8766449689865112,
+          1.1208975315093994,
+          -3.132486581802368,
+          1.0902090072631836,
+          0.5082206726074219,
+          -1.2802246809005737,
+          -3.388117551803589
+        ],
+        [
+          0.4006282687187195,
+          -0.1787855178117752,
+          -0.7380071878433228,
+          -1.9190541505813599,
+          4.893646240234375,
+          -0.3127032220363617,
+          0.5912961959838867,
+          -0.9430578351020813,
+          0.595962405204773,
+          -4.49661111831665,
+          -0.5974071025848389,
+          -0.7615110278129578
+        ],
+        [
+          0.12791086733341217,
+          0.08692781627178192,
+          -1.4596086740493774,
+          0.5697288513183594,
+          0.41857364773750305,
+          -0.02050972729921341,
+          -0.12745755910873413,
+          0.2186577022075653,
+          0.23939719796180725,
+          -3.5630016326904297,
+          -0.23842138051986694,
+          -0.18210214376449585
+        ],
+        [
+          0.24197326600551605,
+          0.14655323326587677,
+          -0.8303327560424805,
+          -1.026193618774414,
+          3.596728563308716,
+          0.008562920615077019,
+          0.310429185628891,
+          -0.2346668839454651,
+          0.3556450605392456,
+          -4.026012897491455,
+          -0.20260407030582428,
+          -0.7946287393569946
+        ],
+        [
+          -0.07892777025699615,
+          -0.18732184171676636,
+          -1.0822248458862305,
+          -0.7976227402687073,
+          0.6094996929168701,
+          -0.5032414793968201,
+          0.09069900959730148,
+          -0.7478164434432983,
+          0.14437569677829742,
+          -1.316372275352478,
+          -0.39842793345451355,
+          -1.0973247289657593
+        ],
+        [
+          0.12065022438764572,
+          0.005342951510101557,
+          -1.1012375354766846,
+          -1.1406898498535156,
+          1.704370379447937,
+          -0.4940444827079773,
+          0.5843318104743958,
+          -1.1302598714828491,
+          0.4813287556171417,
+          -2.1589722633361816,
+          -0.6437517404556274,
+          -1.3873823881149292
+        ],
+        [
+          0.143080934882164,
+          -0.2953054904937744,
+          -0.8127063512802124,
+          -1.584768533706665,
+          2.6559345722198486,
+          -0.43801137804985046,
+          0.3873852789402008,
+          -1.0685356855392456,
+          0.20634493231773376,
+          -2.2017650604248047,
+          -0.5231184363365173,
+          -1.1332207918167114
+        ],
+        [
+          0.3083927631378174,
+          -0.4433457851409912,
+          -1.684159517288208,
+          -1.7066099643707275,
+          1.8909631967544556,
+          -0.5871781706809998,
+          0.9861204624176025,
+          -2.1325881481170654,
+          0.8471891283988953,
+          -0.6586976051330566,
+          -1.0351077318191528,
+          -2.0426878929138184
+        ],
+        [
+          0.34230488538742065,
+          0.0920535996556282,
+          -0.6397020816802979,
+          -1.7834506034851074,
+          4.412403583526611,
+          -0.046508509665727615,
+          0.682615339756012,
+          -0.3816695809364319,
+          0.5176873207092285,
+          -3.9926047325134277,
+          -0.19324596226215363,
+          -0.5615052580833435
+        ],
+        [
+          0.10650724917650223,
+          -0.34364640712738037,
+          -0.9062221646308899,
+          -0.4978436231613159,
+          0.9369213581085205,
+          -0.2501104474067688,
+          0.19808189570903778,
+          -0.7672615051269531,
+          0.03732926398515701,
+          -2.3123576641082764,
+          -0.5353469848632812,
+          -1.0965999364852905
+        ],
+        [
+          0.12076824903488159,
+          -0.16028854250907898,
+          -0.5802831649780273,
+          -1.3970848321914673,
+          3.4184963703155518,
+          -0.05659008026123047,
+          0.40960967540740967,
+          -0.26811346411705017,
+          0.4023098945617676,
+          -3.504826784133911,
+          -0.299155056476593,
+          -0.4379298985004425
+        ],
+        [
+          0.1949370950460434,
+          -0.029257917776703835,
+          -0.7830896377563477,
+          -2.2360007762908936,
+          3.645660161972046,
+          -0.4954493045806885,
+          0.29205381870269775,
+          -1.3805077075958252,
+          0.3642905354499817,
+          -2.916694402694702,
+          -0.7062901258468628,
+          -1.1749460697174072
+        ]
+      ],
+      "biases": [
+        3.9526944160461426,
+        2.5896925926208496,
+        1.4366340637207031,
+        2.2097980976104736,
+        1.293746829032898,
+        2.480106830596924,
+        1.59333336353302,
+        3.273331642150879,
+        1.904233455657959,
+        1.3246259689331055,
+        1.889955759048462,
+        2.2396328449249268
+      ]
+    },
+    {
+      "weights": [
+        [
+          0.22979609668254852,
+          3.6361851692199707,
+          2.208852529525757,
+          3.0460774898529053,
+          0.9028920531272888,
+          1.6331852674484253,
+          1.5437875986099243,
+          1.1257410049438477,
+          3.0530078411102295,
+          1.272930383682251,
+          2.583235502243042,
+          2.4645211696624756
+        ],
+        [
+          4.919244289398193,
+          -2.7667574882507324,
+          -1.6836574077606201,
+          -2.0027554035186768,
+          0.5228081941604614,
+          0.5022057890892029,
+          -0.7417929172515869,
+          2.6076855659484863,
+          -2.7693445682525635,
+          -0.16452345252037048,
+          -1.928680181503296,
+          -1.3266695737838745
+        ],
+        [
+          -3.6947386264801025,
+          -4.127876281738281,
+          -2.193991184234619,
+          -3.2787489891052246,
+          -2.341905355453491,
+          -3.3140487670898438,
+          -3.2124011516571045,
+          -3.5777947902679443,
+          -3.46370005607605,
+          -2.5630970001220703,
+          -3.0343918800354004,
+          -3.8707175254821777
+        ]
+      ],
+      "biases": [
+        -7.303240776062012,
+        -2.4013922214508057,
+        7.7539381980896
+      ]
     }
+  ],
+  "inputLookup": {
+    "range": 0,
+    "a": 1,
+    "b": 2
+  },
+  "inputLookupLength": 3,
+  "outputLookup": {
+    "d1": 0,
+    "d2": 1,
+    "d3": 2
+  },
+  "outputLookupLength": 3,
+  "options": {
+    "inputSize": 0,
+    "outputSize": 0,
+    "binaryThresh": 0.5,
+    "hiddenLayers": [
+      12,
+      12
+    ]
+  },
+  "trainOpts": {
+    "activation": "sigmoid",
+    "iterations": 20000,
+    "errorThresh": 0.005,
+    "log": true,
+    "logPeriod": 10,
+    "leakyReluAlpha": 0.01,
+    "learningRate": 0.3,
+    "momentum": 0.1,
+    "callbackPeriod": 10,
+    "timeout": "Infinity",
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "epsilon": 1e-8
+  }
+};
+const AUFGABENTABELLEX = {
+    "multiply": (() => {
+        const problems = [];
+        for (let a = 2; a * a <= 1000; a++) {
+            for (let b = a; a * b <= 1000; b++) {
+                problems.push({ "a": a, "b": b, "result": a * b, "weight": 1 });
+            }
+        }
+        return problems;
+    })(),
+};
 
-    document.querySelectorAll('nav a').forEach(_navItem => {
-        _navItem.classList.remove('active');
-    });
-    element.classList.add('active');
-}
 
-
-function selectGameScreen() {
-    // switch to active screen
-    document.querySelectorAll('.screen').forEach(_screen => {
-        _screen.classList.remove('active');
-    });
-    document.getElementById("id-section-game").classList.add('active');
+const AUFGABENTABELLE = {
+    "multiply": {
+        "10": [
+            { a: 2, b: 2, result: 4, weight: 2, difficulty: 1},
+            { a: 2, b: 3, result: 6, weight: 2, difficulty: 1},
+            { a: 2, b: 4, result: 8, weight: 2, difficulty: 1},
+            { a: 2, b: 5, result: 10, weight: 2, difficulty: 1},
+            { a: 3, b: 3, result: 9, weight: 3, difficulty: 1},
+        ],
+        "20": [
+            { a: 2, b: 6, result: 12, weight: 2, difficulty: 1},
+            { a: 2, b: 7, result: 14, weight: 2, difficulty: 1},
+            { a: 2, b: 8, result: 16, weight: 2, difficulty: 1},
+            { a: 2, b: 9, result: 18, weight: 2, difficulty: 1},
+            { a: 2, b: 10, result: 20, weight: 2, difficulty: 1},
+            { a: 3, b: 4, result: 12, weight: 3, difficulty: 1},
+            { a: 3, b: 5, result: 15, weight: 3, difficulty: 1},
+            { a: 3, b: 6, result: 18, weight: 3, difficulty: 1},
+            { a: 4, b: 4, result: 16, weight: 4, difficulty: 1},
+            { a: 4, b: 5, result: 20, weight: 4, difficulty: 1},
+        ],
+        "50": (() => {
+            const problems = [];
+            for (let a = 2; a * a <= 50; a++) {
+                for (let b = a; a * b <= 50; b++) {
+                    if (a * b <= 20) continue;
+                    problems.push({ "a": a, "b": b, "result": a * b, "weight": Math.min(a, b), "difficulty": 1});
+                }
+            }
+            return problems;
+        })(),
+        "100": (() => {
+            const problems = [];
+            for (let a = 2; a * a <= 100; a++) {
+                for (let b = a; a * b <= 100; b++) {
+                    if (a * b <= 50) continue;
+                    problems.push({ "a": a, "b": b, "result": a * b, "weight": Math.min(a, b), "difficulty": 1 });
+                }
+            }
+            return problems;
+        })(),
+        "200": (() => {
+            const problems = [];
+            for (let a = 2; a * a <= 200; a++) {
+                for (let b = a; a * b <= 200; b++) {
+                    if (a * b <= 100) continue;
+                    problems.push({ "a": a, "b": b, "result": a * b, "weight": Math.min(a, b), "difficulty": 1 });
+                }
+            }
+            return problems;
+        })(),
+        "500": (() => {
+            const problems = [];
+            for (let a = 2; a * a <= 500; a++) {
+                for (let b = a; a * b <= 500; b++) {
+                    if (a * b <= 200) continue;
+                    problems.push({ "a": a, "b": b, "result": a * b, "weight": Math.min(a, b), "difficulty": 1 });
+                }
+            }
+            return problems;
+        })(),
+        "1000": (() => {
+            const problems = [];
+            for (let a = 2; a * a <= 1000; a++) {
+                for (let b = a; a * b <= 1000; b++) {
+                    if (a * b <= 500) continue;
+                    problems.push({ "a": a, "b": b, "result": a * b, "weight": Math.min(a, b), "difficulty": 1 });
+                }
+            }
+            return problems;
+        })()
+    }
 }
 window.color = 'blue'; // Default-Farbe
 window.theme = "light"; // Default-Theme
@@ -1180,91 +1615,164 @@ function changeLook() {
         radio.nextElementSibling.classList.add(window.color);
     });
 }
-window.AufgabenInSession = 8;
-window.CurrentAufgabenIndex = 0;
-window.AufgabenHistory = [];
+let Aufgaben = []
+let AufgabenIndex = 0
 
-function startNewSession() {
-    // Init session parameters
-    window.operator = document.querySelector('input[name="name-operation"]:checked').value;
-    window.numberRange = document.querySelector('input[name="name-number-range"]:checked').value;
-    window.maxNumber = parseInt(window.numberRange);
-    // Set Title
-    document.querySelector('.problem-title').innerHTML = document.getElementById("svg-" + window.operator).outerHTML;
-    document.querySelector('.problem-title').innerHTML += `<div class="number-label"> ${window.numberRange}</div>`;
+function checkAnswer() {
+    let akutellAufgabe = Aufgaben[AufgabenIndex]
 
+    document.getElementById("id-aufgabe").innerHTML = 
+        akutellAufgabe.aufgabe
+
+    if (document.getElementById("id-ergebnis").value == akutellAufgabe.ergebnis) {
+        document.getElementById("id-check").classList.add("correct")
+        document.getElementById("id-check").innerHTML = 'Korrekt!'
+        setTimeout(() => {
+            generateProblem();
+        }, 1000); 
+    } else {
+        document.getElementById("id-check").classList.add("incorrect")
+        document.getElementById("id-check").innerHTML = 'Leider Falsch'
+    }
+
+    AufgabenIndex += 1
+}
+const net = new brain.NeuralNetwork();
+net.fromJSON(trainedWeights);
+
+function determineDifficulty(problem) {
+    let numberRange = window.numberRange
+    let a = problem.a;
+    let b = problem.b;
     
+    const opMap = { 'plus': 0.25, 'minus': 0.5, 'multiply': 0.75, 'divide': 1 };
+    const rangeMap = { '5': 1/8, '10': 2/8, '20': 3/8, '50': 4/8, '100': 5/8, '200': 6/8, '500': 7/8, '1000': 1 };
+    const inputVector = {
+        range: rangeMap[numberRange],
+        a: a / parseInt(numberRange),
+        b: b / parseInt(numberRange),
+    };
+
+    let output = net.run(inputVector)
+    let values = [output.d1, output.d2, output.d3];
+    // get the index of the highest output value
+    output = values.indexOf(Math.max(...values))
     
-    // Progress bar initialization
+    let difficulty = [1,2,3][output]
+
+    // machine learning
+
+    return difficulty;
+}
+
+function startNewGame() {   
+    _InitGame() 
+    _InitProgressbar()
+    _NewProblemSet()
+
+    ShowNumbersBasedOnMaxNumber();
+    
+    WriteAufgabe();
+    
+    selectGameScreen()
+}
+
+function _InitGame() {
+    window.GameIndex += 1;
+    window.ProblemIndex = -1;
+    window.sessionProblems = [];
+}
+
+function _InitProgressbar() {
     const progressSegments = document.querySelectorAll('.progress-segment');
     for (let segment of progressSegments) {
         segment.classList.remove('is-pending', 'is-correct', 'is-incorrect');
         segment.classList.add('is-pending');
     }
-    
-    // Initialize session history and counters
-    window.AufgabenHistory.push({
-        index: window.AufgabenHistory.length,
-        aufgaben: []
-    })
-    window.AufgabenInSession = 8;
-    window.CurrentAufgabenIndex = 0;
 }
 
-function AufgabeSeenInSession(aufgabe) {
-    if (aufgabe == {} || aufgabe == null || Object.keys(aufgabe).length === 0) return false;
+function _NewProblemSet() {
+    window.ProblemsInGame = getAufgabenSet();
+    window.SessionHistory.push({
+        index: window.SessionHistory.length,
+        aufgaben: window.ProblemsInGame
+    })
+}
+// A session is a collection of games
+// A game is a collection of problems
+// Each time the user clicks on "start" a new session is created
+// Each time the user clicks on "next"/ or when the next game automatically starts
+// a new game is created within the current session
 
-    let currentSession = window.AufgabenHistory[window.AufgabenHistory.length - 1];
-    for (let a of currentSession.aufgaben) {
-        if (a.a === aufgabe.a && a.b === aufgabe.b && a.result === aufgabe.result) {
-            return true;
+
+
+// app config
+window.NumberProglemsPerSession = 8;
+
+// session config
+window.operator = ["plus", "minus", "multiply", "divide"][0];
+window.numberRange = ["5", "10", "20", "50", "100", "200", "500", "1000"][4]
+window.difficulty = [1,2,3][0]
+
+// session history
+window.SessionHistory = [];
+
+// current game (set of problems)
+window.ProblemsInGame = []
+
+// counters
+window.GameIndex = -1;
+window.ProblemIndex = -1;
+
+
+// temporary variables for the current game
+window.maxNumber = -1;
+
+function NewSession() {
+    // Set Title
+    _sessionTitle()
+}
+
+function _sessionTitle() {
+    document.querySelector('.problem-title').innerHTML = document.getElementById("svg-" + window.operator).outerHTML;
+    document.querySelector('.problem-title').innerHTML += `<div class="number-label"> ${window.numberRange}</div>`;
+}
+
+
+function generate_Plus_10() {
+    let maxNumber = 10
+    let a = Math.floor(Math.random() * maxNumber);
+    let b = Math.floor(Math.random() * (maxNumber - a));
+    let result = a + b;
+    return { a: a, b: b, result: result };
+}
+
+function getAufgabenSet() {
+    let ret = [];
+    let newProblem = null;
+    let lastProblem = null;
+    for (let i = 0; i < window.NumberProglemsPerSession; i++) {
+        newProblem = generateAufgabe();
+        if (lastProblem && newProblem.a === lastProblem.a && newProblem.b === lastProblem.b)
+            i--; // retry if the new problem is identical to the last one
+        else {
+            ret.push(newProblem);
+            lastProblem = ret[ret.length - 1];
         }
     }
-    return false;
-}
-window.operator = "+";
-window.numberRange = "1-100";
-window.maxNumber = 100;
-window.currentProblem = {};
-
-var IHaveSeenZero = false;
-
-
-function startGame() {
-    startNewSession()
-    selectGameScreen()
-    
-    ShowNumbersBasedOnMaxNumber();
-    
-    window.currentProblem = generateAufgabe()
-    
-    WriteAufgabe();
-    
+    return ret;
 }
 
 function generateAufgabe() {
     let ret = {}
-    let safetyCount = 0;
-    while (AufgabeSeenInSession(ret) || 
-            Object.keys(ret).length === 0 ||
-            window.operator === "multiply" && window.maxNumber < 11 ||
-            window.operator === "divide" && window.maxNumber < 11 ||
-            safetyCount < 100) {
-                
-        if (safetyCount >= 100) {
-            console.warn("Safety count exceeded 100 iterations while generating problem.");
-            break;
-        }
-        safetyCount++;
-        if (window.operator === "plus")
-            ret = generateAufgabePlus()
-        if (window.operator === "minus")
-            ret = generateAufgabeMinus()
-        if (window.operator === "multiply")
-            ret = generateAufgabeMultiply()
-        if (window.operator === "divide")
-            ret = generateAufgabeDivide()
-    }
+    if (window.operator === "plus")
+        ret = generateAufgabePlus()
+    if (window.operator === "minus")
+        ret = generateAufgabeMinus()
+    if (window.operator === "multiply")
+        ret = generateAufgabeMultiply()
+    if (window.operator === "divide")
+        ret = generateAufgabeDivide()
     return ret;
 }
 
@@ -1275,41 +1783,40 @@ function generateAufgabePlus() {
     let b = Math.floor((1 - Math.random()) * newMaxNumber) + 1;
 
     let result = a + b;
-    return { a: a, b: b, result: result };
+    return { a: a, b: b, result: result, difficulty: determineDifficulty({a: a, b: b})};
 }
 
 function generateAufgabeMinus() {
-    let minNumber = 0;
-    if (window.maxNumber == 20) minNumber = 10;
-    if (window.maxNumber == 50) minNumber = 20;
-    if (window.maxNumber == 100) minNumber = 50;
-    let a = Math.floor(Math.random() * (window.maxNumber - minNumber - 1)) + minNumber + 1;
-    let b = Math.floor(Math.random() * a);
-    let result = a - b;
-    return { a: a, b: b, result: result };
+
+    let PlusProblem = generateAufgabePlus();
+    let CoinFlip = Math.random() < 0.5;
+    if (CoinFlip)
+        return { a: PlusProblem.result, b: PlusProblem.a, result: PlusProblem.b, difficulty: PlusProblem.difficulty};
+    return { a: PlusProblem.result, b: PlusProblem.b, result: PlusProblem.a, difficulty: PlusProblem.difficulty};
 }
+
 function generateAufgabeMultiply() {
-    // 1-math = ]0; 1], die unteren Grenze minFator würde also nie erreicht
-    // "+1" vergrßert den Bereich, aus dem die Zufallszahlen gewählt werden, sodass die unteren Grenzen erreicht werden können.
+    if (window.sessionProblems.length === 0) {
+        let problems = AUFGABENTABELLE["multiply"][window.maxNumber];
+        window.sessionProblems = getSubsetOfEight(problems);
+    }
+
+    window.currentProblemIndex += 1
+    let problem = window.sessionProblems[window.currentProblemIndex];
     
-    let minFactor = 2;
-    if (window.maxNumber < 11) minFactor = 1;
-   
-    let maxA = Math.floor(Math.sqrt(window.maxNumber));
-    let a = Math.floor((1 - Math.random()) * (maxA - minFactor+1)) + minFactor;
-    let maxB = Math.floor(window.maxNumber / a) // this is not an integer
-    let b = Math.floor((1 - Math.random()) * (maxB - minFactor+1)) + minFactor;
-    let result = a * b;
-    return { a: a, b: b, result: result };
+    let CoinFlip = Math.random() < 0.5;
+    if (CoinFlip)
+        return { a: problem.b, b: problem.a, result: problem.result, difficulty: determineDifficulty({a: problem.b, b: problem.a})};
+    return { a: problem.a, b: problem.b, result: problem.result, difficulty: determineDifficulty({a: problem.a, b: problem.b})};
 }
 
 function generateAufgabeDivide() {
-    let multiplyProblem = generateAufgabeMultiply();
-    // inverses Problem: a / b = result
-    let a = multiplyProblem.result;
-    let b = multiplyProblem.b;
-    let result = multiplyProblem.a;
-    return { a: a, b: b, result: result };
+    let mP = generateAufgabeMultiply();
+
+    let CoinFlip = Math.random() < 0.5;
+    if (CoinFlip)
+        return { a: mP.result, b: mP.b, result: mP.a, difficulty: mP.difficulty};
+    return { a: mP.result, b: mP.b, result: mP.a, difficulty: mP.difficulty };
 }
 
 
@@ -1320,26 +1827,88 @@ function generateAufgabeDivide() {
      if (operator === "divide") return "÷";
      return "";
  }
+function FromProblemTable(operator, maxNumber) {
+    let pairs = [];
+    if (mathfitData[operator] === undefined) return [null, null]
+    if (mathfitData[operator][maxNumber] === undefined) return [null, null]
+
+    // Generate the list with factors
+    mathfitData[operator][maxNumber].forEach(item => {
+        let factor = item.factor || 1;
+        for (let i = 0; i < factor; i++) {
+            pairs.push([item.num1, item.num2]);
+        }
+    });
+
+    // Choose a random pair
+    let randomPair = pairs[Math.floor(Math.random() * pairs.length)];
+
+    // 50% chance to switch the order
+    if (Math.random() < 0.5) return [randomPair[1], randomPair[0]]
+    return randomPair
+        
+}
+
+var mathfitData = {
+    "*": {
+        "5": [
+            {"num1": 0, "num2": 1},
+            {"num1": 0, "num2": 2},
+            {"num1": 0, "num2": 3},
+            {"num1": 0, "num2": 4},
+            {"num1": 0, "num2": 5},
+            {"num1": 1, "num2": 1, "factor": 2},
+            {"num1": 1, "num2": 2, "factor": 2},
+            {"num1": 1, "num2": 3, "factor": 2},
+            {"num1": 1, "num2": 4, "factor": 2},
+            {"num1": 1, "num2": 5, "factor": 2},
+            {"num1": 2, "num2": 2, "factor": 4},
+        ], 
+        "10": [
+            {"num1": 0, "num2": 6},
+            {"num1": 0, "num2": 7},
+            {"num1": 0, "num2": 8},
+            {"num1": 0, "num2": 9},
+            {"num1": 0, "num2": 10},
+            {"num1": 1, "num2": 6, "factor": 2},
+            {"num1": 1, "num2": 7, "factor": 2},
+            {"num1": 1, "num2": 8, "factor": 2},
+            {"num1": 1, "num2": 9, "factor": 2},
+            {"num1": 1, "num2": 10, "factor": 2},
+            {"num1": 2, "num2": 3, "factor": 4},
+            {"num1": 2, "num2": 4, "factor": 4},
+            {"num1": 2, "num2": 5, "factor": 4},
+            {"num1": 3, "num2": 3, "factor": 8}
+        ], 
+    }
+}
 
 
- function SubsetFrom_Aufgabentabelle() {
-    let subset = AUFGABENTABELLE[window.operator];
-    let minNumber = 0;
-    if (window.maxNumber == 20) minNumber = 10;
-    if (window.maxNumber == 50) minNumber = 20;
-    if (window.maxNumber == 100) minNumber = 50;
-    if (window.operator === "multiply") {
-        subset = subset.filter(item =>  minNumber <= item.result && item.result <= window.maxNumber);
+function selectScreen(element) {
+    // switch to active screen
+    const name = element.title.trim().toLowerCase();
+    document.querySelectorAll('.screen').forEach(_screen => {
+        _screen.classList.remove('active');
+    });
+    const targetScreen = document.getElementById('id-section-' + name.toLowerCase());
+    if (targetScreen) {
+        targetScreen.classList.add('active');
     }
 
-    if (window.operator === "divide") {
-        subset = subset.filter(item =>  minNumber <= item.a && item.a <= window.maxNumber 
-            && item.b != 1);
-    }
-    return subset;
- }
+    document.querySelectorAll('nav a').forEach(_navItem => {
+        _navItem.classList.remove('active');
+    });
+    element.classList.add('active');
+}
 
 
+function selectGameScreen() {
+    // switch to active screen
+    document.querySelectorAll('.screen').forEach(_screen => {
+        _screen.classList.remove('active');
+    });
+    document.getElementById("id-section-game").classList.add('active');
+}
 function appendToResult(content) {
     let resultElement = document.getElementById("result");
     if (resultElement.style.color === "var(--color-incorrect)") {
@@ -1347,7 +1916,10 @@ function appendToResult(content) {
         resultElement.firstElementChild.textContent = "";
     }
 
-    if (resultElement.textContent.length > 4) return;
+    if (resultElement.textContent.length > 4) {
+        ErrorShake(resultElement);
+        return;
+    }
     resultElement.firstElementChild.textContent += content;
 }
 
@@ -1360,11 +1932,7 @@ async function checkResult() {
     // get the user's answer and the current problem
     let resultElement = document.getElementById("result");
     let userAnswer = parseInt(resultElement.firstElementChild.textContent);
-    let problem = window.currentProblem;
-
-    // store the user's answer in the session history
-    window.AufgabenHistory[window.AufgabenHistory.length - 1].aufgaben.push({ ...problem, userAnswer: userAnswer });
-    window.CurrentAufgabenIndex += 1;
+    let problem = window.ProblemsInGame[window.ProblemIndex];
 
     // update the progress bar
     let nextProgressSegment = document.querySelector('.progress-segment.is-pending');
@@ -1373,23 +1941,69 @@ async function checkResult() {
         nextProgressSegment.classList.add('is-correct');
         SuccessJump(resultElement)
         await new Promise(resolve => setTimeout(resolve, 500)); // Wait for the success jump animation to complete
-        window.currentProblem = generateAufgabe()
-        WriteAufgabe();
+        let numberOfStars = problem.difficulty;
+        for (let i = 0; i < numberOfStars; i++) {
+            document.getElementById("collection-of-stars").innerHTML += WriteSVG("svg-star-filled");
+        }
+
     } else {
         nextProgressSegment.classList.add('is-incorrect');
         ErrorShake(resultElement)
     }
 
-    if (window.CurrentAufgabenIndex >= window.AufgabenInSession) {
-        startGame();
+    if (window.ProblemIndex + 1 < window.ProblemsInGame.length) {
+        WriteAufgabe();
+    } else {
+        startNewGame()
     }
 }
 
+// EVENTLISTENER
 
+// add event listener for the difficulty selection
+const starInputs = document.querySelectorAll('input[name="name-difficulty"]');
+starInputs.forEach((input, index) => {
+    input.addEventListener('change', () => {
+        // Wir gehen alle Sterne durch
+        starInputs.forEach((el, i) => {
+            // Alle bis zum aktuellen (und der aktuelle selbst) werden checked gesetzt
+            if (i <= index) {
+                el.checked = true;
+                // Optional: Füge hier eine CSS-Klasse für das Design hinzu (z. B. für den dunklen Hintergrund wie bei "100")
+                el.closest('.star-label').classList.add('selected');
+            } else {
+                el.checked = false;
+                el.closest('.star-label').classList.remove('selected');
+            }
+        });
+    });
+});
+function user_Start() {
+    _GetHomeParameters();
+
+    NewSession() 
+
+    startNewGame()
+
+}
+
+function _GetHomeParameters() {
+    window.operator = document.querySelector('input[name="name-operation"]:checked').value;
+    window.numberRange = document.querySelector('input[name="name-number-range"]:checked').value;
+    window.maxNumber = parseInt(window.numberRange);
+}
 function WriteAufgabe() {
-    document.getElementById("problem").innerHTML = window.currentProblem.a + " " + _operator(window.operator) + " " + window.currentProblem.b;
+    window.ProblemIndex += 1;
+    let problem = window.ProblemsInGame[window.ProblemIndex];
+    document.getElementById("problem").innerHTML = problem.a + " " + _operator(window.operator) + " " + problem.b;
     document.getElementById("result").firstElementChild.textContent = "";
     document.getElementById("result").style.color = "";
+
+    document.getElementById("id-difficulty-absolute-position").innerHTML = WriteSVG("svg-star-filled")
+    if (problem.difficulty > 1) 
+        document.getElementById("id-difficulty-absolute-position").innerHTML += WriteSVG("svg-star-filled");
+    if (problem.difficulty > 2) 
+        document.getElementById("id-difficulty-absolute-position").innerHTML += WriteSVG("svg-star-filled");
 }
 
 function WriteSVG(id) {

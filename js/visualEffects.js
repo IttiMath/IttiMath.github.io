@@ -1,7 +1,15 @@
 function WriteAufgabe() {
-    document.getElementById("problem").innerHTML = window.currentProblem.a + " " + _operator(window.operator) + " " + window.currentProblem.b;
+    window.ProblemIndex += 1;
+    let problem = window.ProblemsInGame[window.ProblemIndex];
+    document.getElementById("problem").innerHTML = problem.a + " " + _operator(window.operator) + " " + problem.b;
     document.getElementById("result").firstElementChild.textContent = "";
     document.getElementById("result").style.color = "";
+
+    document.getElementById("id-difficulty-absolute-position").innerHTML = WriteSVG("svg-star-filled")
+    if (problem.difficulty > 1) 
+        document.getElementById("id-difficulty-absolute-position").innerHTML += WriteSVG("svg-star-filled");
+    if (problem.difficulty > 2) 
+        document.getElementById("id-difficulty-absolute-position").innerHTML += WriteSVG("svg-star-filled");
 }
 
 function WriteSVG(id) {
