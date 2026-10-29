@@ -29,15 +29,20 @@ async function checkResult() {
     if (userAnswer === problem.result) {
         nextProgressSegment.classList.add('is-correct');
         SuccessJump(resultElement)
-        await new Promise(resolve => setTimeout(resolve, 500)); // Wait for the success jump animation to complete
         let numberOfStars = problem.difficulty;
         for (let i = 0; i < numberOfStars; i++) {
             document.getElementById("collection-of-stars").innerHTML += WriteSVG("svg-star-filled");
         }
-
     } else {
         nextProgressSegment.classList.add('is-incorrect');
         ErrorShake(resultElement)
+    }
+
+    await new Promise(resolve => setTimeout(resolve, 500)); // Wait for the success jump animation to complete
+    
+    // if the user's answer is incorrect, stay on the current problem
+    if (userAnswer !== problem.result) {
+        return
     }
 
     if (window.ProblemIndex + 1 < window.ProblemsInGame.length) {

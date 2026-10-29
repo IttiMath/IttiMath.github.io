@@ -69,7 +69,7 @@ try {
     let scriptString = '';
     const scriptPaths = [
         // 'C:/git/mo-hi.github.io/basis/js/customElements_SelectionPill.js',
-        './js_node/weights.js',
+        './js_node/weightsPlus.js',
     ]
     for (let path of scriptPaths) {
         scriptString += fs.readFileSync(path, 'utf8') + '\n';

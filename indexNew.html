@@ -1129,7 +1129,7 @@ label.operator-label {
 label.number-label:has(input[type="radio"]:checked) {
   transform: scale(1.2);
   font-size: 18px;
-}</style></head><body class="light gray"><main class="app-container"><div id="id-logo-container" style="--color-logo: var(--color-gray-600); width: 100%; height: 132px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 220" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><rect width="500" height="220" rx="20" fill="transparent"/><text x="250" y="120" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="88" font-weight="800" fill="var(--color-logo)" text-anchor="middle" letter-spacing="6">ITTI</text><text x="250" y="168" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="var(--color-logo)" text-anchor="middle" letter-spacing="2">INTERACTIVE INTEGER TRAINING</text></svg></div><section id="id-section-game" class="screen"><div class="app-content"><div class="problem-title"></div><ol class="progress-bar" aria-label="Antwortverlauf für 8 Aufgaben"><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li></ol><div id="collection-of-stars" style="height: 50px; width:200%; transform: scale(0.5);text-align: left;"></div><div class="spacer"></div><div class="problem-container"><div id="problem">3 x 27</div><div id="equal">=</div><div id="result"><span></span></div></div><div class="spacer"></div><div id="number-pad"><div id="num1" class="number-block" onclick="appendToResult(1)">1</div><div id="num2" class="number-block" onclick="appendToResult(2)">2</div><div id="num3" class="number-block" onclick="appendToResult(3)">3</div><div id="num4" class="number-block" onclick="appendToResult(4)">4</div><div id="num5" class="number-block" onclick="appendToResult(5)">5</div><div id="num6" class="number-block" onclick="appendToResult(6)">6</div><div id="num7" class="number-block" onclick="appendToResult(7)">7</div><div id="num8" class="number-block" onclick="appendToResult(8)">8</div><div id="num9" class="number-block" onclick="appendToResult(9)">9</div><div id="num0" class="number-block zero-btn" onclick="appendToResult(0)">0</div></div><div class="action-buttons-container"><button class="action-button red" onclick="clearResult()">X</button> <button class="action-button green" onclick="checkResult()">&#10004;</button></div></div><div id="id-difficulty-absolute-position" style="position: absolute; top: 300px; left: 15px;transform: scale(0.5);">1 2 3</div></section><section id="id-section-home" class="screen active"><div class="app-content"><div class="w-100"><div class="spacer h-20"></div><div class="home-selection flex-space-between w-100 mt-10"><label class="operator-label w-20"><input type="radio" name="name-operation" value="plus" class="hidden" checked="checked"><div class="w-100"><svg id="svg-plus" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-blue-600)"/><path d="M30 13V27M23 20H37" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="minus" class="hidden"><div class="w-100"><svg id="svg-minus" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-red-600)"/><path d="M22 20H38" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="multiply" class="hidden"><div class="w-100"><svg id="svg-multiply" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-yellow-500)"/><path d="M24 14L36 26M36 14L24 26" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="divide" class="hidden"><div class="w-100"><svg id="svg-divide" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-green-600)"/><circle cx="30" cy="12" r="2.5" fill="white"/><path d="M22 20H38" stroke="white" stroke-width="4" stroke-linecap="round"/><circle cx="30" cy="28" r="2.5" fill="white"/></svg></div></label></div></div><div class="spacer h-40"></div><div class="w-100"><div class="home-selection flex-space-between w-100 mt-10"><label class="number-label gray w-20"><input type="radio" name="name-number-range" value="5" class="hidden" checked="checked"><div class="w-100">5</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="10" class="hidden"><div class="w-100">10</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="20" class="hidden"><div class="w-100">20</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="50" class="hidden"><div class="w-100">50</div></label></div><div class="spacer h-10"></div><div class="home-selection flex-space-between w-100 mt-10"><label class="number-label gray w-20"><input type="radio" name="name-number-range" value="100" class="hidden" checked="checked"><div class="w-100">100</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="200" class="hidden"><div class="w-100">200</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="500" class="hidden"><div class="w-100">500</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="1000" class="hidden"><div class="w-100">1000</div></label></div></div><div class="spacer h-180"></div><button class="action-button green" onclick="user_Start();">START</button> <button class="action-button hidden" onclick="startGame();">Continue Game</button></div></section><section id="id-section-personal" class="screen"><h2>Personal / Session</h2><p>Informationen zur aktuellen Sitzung:</p><ul><li>Session-ID: #83921</li><li>Status: Aktiv</li></ul></section><section id="id-section-settings" class="screen"><div class="app-content"><div class="settings-section w-100"><span class="font-24 bold">Colors</span><div class="color-options flex-space-between mt-10"><div class="btn gray" onclick="changeColor('gray')">gray</div><div class="btn blue" onclick="changeColor('blue')">blue</div><div class="btn pink" onclick="changeColor('pink')">pink</div><div class="btn green" onclick="changeColor('green')">green</div></div></div></div></section><div id="id-mobile-navbar" class="mobile-navbar"><nav><a onclick="selectScreen(this)" aria-label="Settings" title="Settings">⚙</a> <a onclick="selectScreen(this)" class="active" aria-label="Home" title="Home">⌂</a> <a onclick="selectScreen(this)" aria-label="Personal" title="Personal">👤</a></nav></div></main><div class="hidden"><svg id="svg-star-filled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40"><path d="M20 2l5.5 11.5L38 15l-9 8.5L31 36l-11-6-11 6 2.5-12.5L2 15l12.5-1.5L20 2z" fill="var(--color-yellow-400)" stroke="var(--color-yellow-400)" stroke-width="1.5" stroke-linejoin="round"/></svg></div></body><script src="js_libs/brain.js"></script><script>const trainedWeights = {
+}</style></head><body class="light gray"><main class="app-container"><div id="id-logo-container" style="--color-logo: var(--color-gray-600); width: 100%; height: 132px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 220" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><rect width="500" height="220" rx="20" fill="transparent"/><text x="250" y="120" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="88" font-weight="800" fill="var(--color-logo)" text-anchor="middle" letter-spacing="6">ITTI</text><text x="250" y="168" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="var(--color-logo)" text-anchor="middle" letter-spacing="2">INTERACTIVE INTEGER TRAINING</text></svg></div><section id="id-section-game" class="screen"><div class="app-content"><div class="problem-title"></div><ol class="progress-bar" aria-label="Antwortverlauf für 8 Aufgaben"><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li><li class="progress-segment is-pending"></li></ol><div id="collection-of-stars" style="height: 50px; width:200%; transform: scale(0.5);text-align: left;"></div><div class="spacer"></div><div class="problem-container"><div id="problem">3 x 27</div><div id="equal">=</div><div id="result"><span></span></div></div><div class="spacer"></div><div id="number-pad"><div id="num1" class="number-block" onclick="appendToResult(1)">1</div><div id="num2" class="number-block" onclick="appendToResult(2)">2</div><div id="num3" class="number-block" onclick="appendToResult(3)">3</div><div id="num4" class="number-block" onclick="appendToResult(4)">4</div><div id="num5" class="number-block" onclick="appendToResult(5)">5</div><div id="num6" class="number-block" onclick="appendToResult(6)">6</div><div id="num7" class="number-block" onclick="appendToResult(7)">7</div><div id="num8" class="number-block" onclick="appendToResult(8)">8</div><div id="num9" class="number-block" onclick="appendToResult(9)">9</div><div id="num0" class="number-block zero-btn" onclick="appendToResult(0)">0</div></div><div class="action-buttons-container"><button class="action-button red" onclick="clearResult()">X</button> <button class="action-button green" onclick="checkResult()">&#10004;</button></div></div><div id="id-difficulty-absolute-position" style="position: absolute; top: 300px; left: 15px;transform: scale(0.5);">1 2 3</div></section><section id="id-section-home" class="screen active"><div class="app-content"><div class="w-100"><div class="spacer h-20"></div><div class="home-selection flex-space-between w-100 mt-10"><label class="operator-label w-20"><input type="radio" name="name-operation" value="plus" class="hidden" checked="checked"><div class="w-100"><svg id="svg-plus" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-blue-600)"/><path d="M30 13V27M23 20H37" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="minus" class="hidden"><div class="w-100"><svg id="svg-minus" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-red-600)"/><path d="M22 20H38" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="multiply" class="hidden"><div class="w-100"><svg id="svg-multiply" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-yellow-500)"/><path d="M24 14L36 26M36 14L24 26" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div></label> <label class="operator-label w-20"><input type="radio" name="name-operation" value="divide" class="hidden"><div class="w-100"><svg id="svg-divide" width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" rx="8" fill="var(--color-green-600)"/><circle cx="30" cy="12" r="2.5" fill="white"/><path d="M22 20H38" stroke="white" stroke-width="4" stroke-linecap="round"/><circle cx="30" cy="28" r="2.5" fill="white"/></svg></div></label></div></div><div class="spacer h-40"></div><div class="w-100"><div class="home-selection flex-space-between w-100 mt-10"><label class="number-label gray w-20"><input type="radio" name="name-number-range" value="5" class="hidden" checked="checked"><div class="w-100">5</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="10" class="hidden"><div class="w-100">10</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="20" class="hidden"><div class="w-100">20</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="50" class="hidden"><div class="w-100">50</div></label></div><div class="spacer h-10"></div><div class="home-selection flex-space-between w-100 mt-10"><label class="number-label gray w-20"><input type="radio" name="name-number-range" value="100" class="hidden" checked="checked"><div class="w-100">100</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="200" class="hidden"><div class="w-100">200</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="500" class="hidden"><div class="w-100">500</div></label> <label class="number-label gray w-20"><input type="radio" name="name-number-range" value="1000" class="hidden"><div class="w-100">1000</div></label></div></div><div class="spacer h-180"></div><button class="action-button green" onclick="user_Start();">START</button> <button class="action-button hidden" onclick="startGame();">Continue Game</button></div></section><section id="id-section-personal" class="screen"><h2>Personal / Session</h2><p>Informationen zur aktuellen Sitzung:</p><ul><li>Session-ID: #83921</li><li>Status: Aktiv</li></ul></section><section id="id-section-settings" class="screen"><div class="app-content"><div class="settings-section w-100"><span class="font-24 bold">Colors</span><div class="color-options flex-space-between mt-10"><div class="btn gray" onclick="changeColor('gray')">gray</div><div class="btn blue" onclick="changeColor('blue')">blue</div><div class="btn pink" onclick="changeColor('pink')">pink</div><div class="btn green" onclick="changeColor('green')">green</div></div></div></div></section><div id="id-mobile-navbar" class="mobile-navbar"><nav><a onclick="selectScreen(this)" aria-label="Settings" title="Settings">⚙</a> <a onclick="selectScreen(this)" class="active" aria-label="Home" title="Home">⌂</a> <a onclick="selectScreen(this)" aria-label="Personal" title="Personal">👤</a></nav></div></main><div class="hidden"><svg id="svg-star-filled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40"><path d="M20 2l5.5 11.5L38 15l-9 8.5L31 36l-11-6-11 6 2.5-12.5L2 15l12.5-1.5L20 2z" fill="var(--color-yellow-400)" stroke="var(--color-yellow-400)" stroke-width="1.5" stroke-linejoin="round"/></svg></div></body><script src="js_libs/brain.js"></script><script>const trainedWeights_Plus = {
   "type": "NeuralNetwork",
   "sizes": [
     3,
@@ -1637,22 +1637,30 @@ function checkAnswer() {
 
     AufgabenIndex += 1
 }
-const net = new brain.NeuralNetwork();
-net.fromJSON(trainedWeights);
+
 
 function determineDifficulty(problem) {
-    let numberRange = window.numberRange
-    let a = problem.a;
-    let b = problem.b;
-    
-    const opMap = { 'plus': 0.25, 'minus': 0.5, 'multiply': 0.75, 'divide': 1 };
+    if (window.operator == "plus" || window.operator == "minus") {
+        return determineDifficultyPlus(problem);
+    }
+
+    if (window.operator == "multiply" || window.operator == "divide") {
+        return determineDifficultyMultiply(problem);
+    }
+}
+
+function determineDifficultyPlus(problem) {
+    // machine learning based difficulty determination for plus problems
+    const numberRange = window.numberRange;
     const rangeMap = { '5': 1/8, '10': 2/8, '20': 3/8, '50': 4/8, '100': 5/8, '200': 6/8, '500': 7/8, '1000': 1 };
     const inputVector = {
         range: rangeMap[numberRange],
-        a: a / parseInt(numberRange),
-        b: b / parseInt(numberRange),
+        a: problem.a / parseInt(numberRange),
+        b: problem.b / parseInt(numberRange),
     };
 
+    let net = new brain.NeuralNetwork();
+    net.fromJSON(trainedWeights_Plus);
     let output = net.run(inputVector)
     let values = [output.d1, output.d2, output.d3];
     // get the index of the highest output value
@@ -1660,9 +1668,44 @@ function determineDifficulty(problem) {
     
     let difficulty = [1,2,3][output]
 
-    // machine learning
-
     return difficulty;
+}
+
+function determineDifficultyMultiply(problem) {
+        // based on single factors
+        if (problem.a == 0 || problem.b == 0 ||
+            problem.a == 1 || problem.b == 1 ||
+            problem.a == 2 || problem.b == 2 ||
+            problem.a == 5 || problem.b == 5 ||
+            problem.a == 10 || problem.b == 10 ||
+            problem.a == 11 || problem.b == 11 ||
+            problem.a == 20 || problem.b == 20 ||
+            problem.a == 30 || problem.b == 30 ||
+            problem.a == 40 || problem.b == 40 ||
+            problem.a == 50 || problem.b == 50
+        ) {
+            return 1;}
+
+        // based on combination of factors
+        if ((problem.a == 3 && problem.b == 25) ||
+            (problem.a == 25 && problem.b == 3) ||
+            (problem.a == 4 && problem.b == 25) ||
+            (problem.a == 25 && problem.b == 4)
+        ) {
+            return 1;
+        }
+
+        let range = window.numberRange;
+        if (range == "5" || range == "10" || range == "20") {
+            return 1;
+        }
+        if (range == "50" || range == "100") {
+            if (problem.a > 11 || problem.b > 11) 
+                return 3;
+            if (problem.a > 7 || problem.b > 7)
+                return 2;
+            return 1;
+        }
 }
 
 function startNewGame() {   
@@ -1731,11 +1774,17 @@ window.maxNumber = -1;
 function NewSession() {
     // Set Title
     _sessionTitle()
+
+    _ResetStarsToZero()
 }
 
 function _sessionTitle() {
     document.querySelector('.problem-title').innerHTML = document.getElementById("svg-" + window.operator).outerHTML;
     document.querySelector('.problem-title').innerHTML += `<div class="number-label"> ${window.numberRange}</div>`;
+}
+
+function _ResetStarsToZero() {
+    document.getElementById("collection-of-stars").innerHTML = "";
 }
 
 
@@ -1943,15 +1992,20 @@ async function checkResult() {
     if (userAnswer === problem.result) {
         nextProgressSegment.classList.add('is-correct');
         SuccessJump(resultElement)
-        await new Promise(resolve => setTimeout(resolve, 500)); // Wait for the success jump animation to complete
         let numberOfStars = problem.difficulty;
         for (let i = 0; i < numberOfStars; i++) {
             document.getElementById("collection-of-stars").innerHTML += WriteSVG("svg-star-filled");
         }
-
     } else {
         nextProgressSegment.classList.add('is-incorrect');
         ErrorShake(resultElement)
+    }
+
+    await new Promise(resolve => setTimeout(resolve, 500)); // Wait for the success jump animation to complete
+    
+    // if the user's answer is incorrect, stay on the current problem
+    if (userAnswer !== problem.result) {
+        return
     }
 
     if (window.ProblemIndex + 1 < window.ProblemsInGame.length) {
